@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
+import { LoginForm } from 'app/components';
 
-export namespace Home {
+export namespace Login {
   export interface Props extends RouteComponentProps<void> {}
 }
 
-export class Home extends React.Component<Home.Props> {
+export class Login extends React.Component<Login.Props> {
   render() {
-    return <div>Hello home</div>;
+    return <LoginForm />;
   }
 }

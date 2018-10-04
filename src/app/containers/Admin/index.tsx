@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 
-export namespace Home {
+export namespace Admin {
   export interface Props extends RouteComponentProps<void> {}
 }
 
-export class Home extends React.Component<Home.Props> {
+export class Admin extends React.Component<Admin.Props> {
   render() {
-    return <div>Hello home</div>;
+    return <div>Hello admin</div>;
   }
 }

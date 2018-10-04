@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Route, RouteComponentProps, Switch } from 'react-router';
-import { Home } from 'app/containers';
+import { Admin, Home, Login } from 'app/containers';
 import { NotFound } from 'app/components';
 
 export namespace App {
@@ -13,6 +13,8 @@ export class App extends React.Component<App.Props> {
       <div>
         <Switch>
           <Route path="/" exact component={Home} />
+          <Route path="/login" exact component={Login} />
+          <Route path="/admin" exact component={Admin} />
           <Route component={NotFound} />
         </Switch>
       </div>
