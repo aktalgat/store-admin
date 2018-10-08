@@ -3,10 +3,10 @@ import * as React from 'react';
 export class AdminForm extends React.Component {
   render() {
     return (
-      <div>
-        <table>
+      <div className="container text-center">
+        <table className="table table-bordered">
           <thead>
-            <tr>
+            <tr className="text-center">
               <th>#</th>
               <th>Наименование</th>
               <th>Описание</th>
@@ -21,7 +21,6 @@ export class AdminForm extends React.Component {
           </thead>
           <tbody>
             <tr>
-              <td></td>
               <td></td>
               <td></td>
               <td></td>
