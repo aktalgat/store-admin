@@ -31,7 +31,7 @@ export class AdminForm extends React.Component<AdminForm.Props, AdminForm.State>
         <table className="table table-bordered">
           <thead>
             <tr className="text-center">
-              <th>#</th>
+              <th>№ п/п</th>
               <th>Наименование</th>
               <th>Описание</th>
               <th>Краткое описание</th>
@@ -59,17 +59,51 @@ export class AdminForm extends React.Component<AdminForm.Props, AdminForm.State>
           </tbody>
         </table>
         <div><button className="btn btn-primary" onClick={this.toggle}>Новый товар</button></div>
-        <Modal isOpen={this.state.modal} toggle={this.toggle}>
-          <ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
+        <Modal isOpen={this.state.modal} toggle={this.toggle} size="lg">
+          <ModalHeader toggle={this.toggle}>Товар</ModalHeader>
           <ModalBody>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <form>
+              <div className="form-group">
+                <label htmlFor="productName">Наименование</label>
+                <input type="text" className="form-control" id="productName" />
+              </div>
+              <div className="form-group">
+                <label htmlFor="productName">Описание</label>
+                <textarea className="form-control" id="productName" />
+              </div>
+              <div className="form-group">
+                <label htmlFor="productName">Краткое описание</label>
+                <textarea className="form-control" id="productName" />
+              </div>
+              <div className="form-group">
+                <label htmlFor="productName">Дополнительная информация</label>
+                <textarea className="form-control" id="productName" />
+              </div>
+              <div className="form-group">
+                <label htmlFor="productName">Значок</label>
+                <input type="text" className="form-control" id="productName" />
+              </div>
+              <div className="form-group">
+                <label htmlFor="productName">Цена</label>
+                <input type="text" className="form-control" id="productName" />
+              </div>
+              <div className="form-group">
+                <label htmlFor="productName">Старая цена</label>
+                <input type="text" className="form-control" id="productName" />
+              </div>
+              <div className="form-group">
+                <label htmlFor="productName">Звезды</label>
+                <input type="text" className="form-control" id="productName" />
+              </div>
+              <div className="form-group">
+                <label htmlFor="productName">Изображения</label>
+                <input type="file" className="form-control-file" id="productName"  />
+              </div>
+            </form>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Do Something</Button>{' '}
-            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+            <Button color="primary" onClick={this.toggle}>Добавить</Button>{' '}
+            <Button color="secondary" onClick={this.toggle}>Отмена</Button>
           </ModalFooter>
         </Modal>
       </div>
