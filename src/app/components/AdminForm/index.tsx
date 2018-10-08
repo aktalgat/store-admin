@@ -68,36 +68,42 @@ export class AdminForm extends React.Component<AdminForm.Props, AdminForm.State>
                 <input type="text" className="form-control" id="productName" />
               </div>
               <div className="form-group">
-                <label htmlFor="productName">Описание</label>
-                <textarea className="form-control" id="productName" />
+                <label htmlFor="productDesc">Описание</label>
+                <textarea className="form-control" id="productDesc" />
               </div>
               <div className="form-group">
-                <label htmlFor="productName">Краткое описание</label>
-                <textarea className="form-control" id="productName" />
+                <label htmlFor="productShortDesc">Краткое описание</label>
+                <textarea className="form-control" id="productShortDesc" />
               </div>
               <div className="form-group">
-                <label htmlFor="productName">Дополнительная информация</label>
-                <textarea className="form-control" id="productName" />
+                <label htmlFor="productAddInfo">Дополнительная информация</label>
+                <textarea className="form-control" id="productAddInfo" />
               </div>
               <div className="form-group">
-                <label htmlFor="productName">Значок</label>
-                <input type="text" className="form-control" id="productName" />
+                <label htmlFor="productBadge">Значок</label>
+                <input type="text" className="form-control" id="productBadge" />
               </div>
               <div className="form-group">
-                <label htmlFor="productName">Цена</label>
-                <input type="text" className="form-control" id="productName" />
+                <label htmlFor="productPrice">Цена</label>
+                <input type="text" className="form-control" id="productPrice" />
               </div>
               <div className="form-group">
-                <label htmlFor="productName">Старая цена</label>
-                <input type="text" className="form-control" id="productName" />
+                <label htmlFor="productOldPrice">Старая цена</label>
+                <input type="text" className="form-control" id="productOldPrice" />
               </div>
               <div className="form-group">
-                <label htmlFor="productName">Звезды</label>
-                <input type="text" className="form-control" id="productName" />
+                <label htmlFor="productStars">Звезды</label>
+                <select className="form-control" id="productStars">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
               </div>
               <div className="form-group">
-                <label htmlFor="productName">Изображения</label>
-                <input type="file" className="form-control-file" id="productName"  />
+                <label htmlFor="productImages">Изображения</label>
+                <input type="file" className="form-control-file" id="productImages" />
               </div>
             </form>
           </ModalBody>
