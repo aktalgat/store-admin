@@ -1,0 +1,18 @@
+#wrapper #content-wrapper {
+  overflow-x: hidden;
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 80px;
+}
+
+.nav-span-item {
+  padding: 1rem;
+  margin: 0;
+  display: block;
+  cursor: pointer;
+}
+
+.nav-span-item:hover {
+  background-color: whitesmoke;
+}
+

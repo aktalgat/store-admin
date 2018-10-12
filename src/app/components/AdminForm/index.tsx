@@ -17,8 +17,8 @@ export class AdminForm extends React.Component<AdminForm.Props, AdminForm.State>
     return (
       <div id="wrapper" className="d-flex">
         <ul className="sidebar navbar-nav">
-          <li className="nav-item">Категории</li>
-          <li className="nav-item">Товары</li>
+          <li className="nav-item"><span className="nav-span-item">Категории</span></li>
+          <li className="nav-item"><span className="nav-span-item">Товары</span></li>
         </ul>
         <div id="content-wrapper">
           <CategoryForm/>
