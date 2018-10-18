@@ -29,6 +29,21 @@ export class LoginForm extends React.Component<LoginForm.Props, LoginForm.State>
     }
   }
 
+  handleLoginChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({login: e.target.value})
+  };
+
+  handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({password: e.target.value});
+  };
+
+  handleClickLogin = (): void => {
+    this.props.onSubmit({
+      login: this.state.login,
+      password: this.state.password
+    });
+  };
+
   render() {
     return (
       <div className="login-div">
@@ -45,7 +60,7 @@ export class LoginForm extends React.Component<LoginForm.Props, LoginForm.State>
             placeholder="Email address"
             required
             autoFocus
-          />
+            onChange={this.handleLoginChange} />
           <label htmlFor="inputPassword" className="sr-only">
             Password
           </label>
@@ -55,13 +70,13 @@ export class LoginForm extends React.Component<LoginForm.Props, LoginForm.State>
             className="form-control"
             placeholder="Password"
             required
-          />
+            onChange={this.handlePasswordChange} />
           <div className="checkbox mb-3">
             <label>
               <input type="checkbox" value="remember-me" /> Remember me{' '}
             </label>
           </div>
-          <button className="btn btn-lg btn-primary btn-block" type="submit">
+          <button className="btn btn-lg btn-primary btn-block" type="submit" onClick={this.handleClickLogin}>
             Log in
           </button>
           <p className="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
