@@ -41,6 +41,7 @@
     "query-string": "^6.2.0",
     "react-hot-loader": "^4.3.4",
     "redux-devtools-extension": "^2.13.5",
+    "redux-saga": "^0.16.2",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.22.1",
     "ts-loader": "^4.4.2",
