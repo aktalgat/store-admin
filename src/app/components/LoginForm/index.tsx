@@ -1,6 +1,34 @@
 import * as React from 'react';
 
-export class LoginForm extends React.Component {
+export namespace LoginForm {
+  export interface Methods {
+    onSubmit: any;
+  }
+
+  export interface Fields {
+    messages: any;
+    error: string;
+  }
+
+  export interface Props extends Methods, Fields {}
+
+  export interface State {
+    login: string;
+    password: string;
+    error: string;
+  }
+}
+
+export class LoginForm extends React.Component<LoginForm.Props, LoginForm.State> {
+  constructor(props: LoginForm.Props) {
+    super(props);
+    this.state = {
+      login: '',
+      password: '',
+      error: ''
+    }
+  }
+
   render() {
     return (
       <div className="login-div">
