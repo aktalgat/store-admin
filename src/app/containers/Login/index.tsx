@@ -27,6 +27,9 @@ export namespace Login {
 )
 export class Login extends React.Component<Login.Props> {
   render() {
-    return <LoginForm />;
+    const { auth } = this.props;
+    const loginProps = this.props as LoginForm.Fields;
+
+    return <LoginForm {...loginProps} onSubmit={auth}/>;
   }
 }
