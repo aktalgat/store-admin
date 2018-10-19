@@ -31,6 +31,7 @@
     "@types/webpack-env": "1.13.6",
     "babel-loader": "^8.0.2",
     "css-loader": "^1.0.0",
+    "dotenv": "^6.1.0",
     "file-loader": "^1.1.11",
     "html-loader": "^1.0.0-alpha.0",
     "html-webpack-plugin": "^4.0.0-alpha",
