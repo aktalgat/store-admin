@@ -12,7 +12,7 @@ const postProps = {
 };
 
 const fetchWrap = (path: any, props = postProps, query: string = '', data: any = null) => {
-  const apiHost = '/';
+  const apiHost = process.env.API_URL || '/';
 
   let initProps = props;
   if (data) {
