@@ -54,7 +54,7 @@ export class LoginForm extends React.Component<LoginForm.Props, LoginForm.State>
             Email address
           </label>
           <input
-            type="email"
+            type="text"
             id="inputEmail"
             className="form-control"
             placeholder="Email address"
