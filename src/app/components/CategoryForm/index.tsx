@@ -1,10 +1,8 @@
 import * as React from 'react';
-import {Button, Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
+import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
 export namespace CategoryForm {
-  export interface Props {
-
-  }
+  export interface Props {}
 
   export interface State {
     modal: boolean;
@@ -16,13 +14,13 @@ export class CategoryForm extends React.Component<CategoryForm.Props, CategoryFo
     super(props);
     this.state = {
       modal: false
-    }
+    };
   }
 
   toggle = () => {
     this.setState({
       modal: !this.state.modal
-    })
+    });
   };
 
   render() {
@@ -31,16 +29,16 @@ export class CategoryForm extends React.Component<CategoryForm.Props, CategoryFo
         <div className="col-md-8">
           <table className="table table-bordered">
             <thead>
-            <tr className="text-center">
-              <th>№ п/п</th>
-              <th>Наименование</th>
-            </tr>
+              <tr className="text-center">
+                <th>№ п/п</th>
+                <th>Наименование</th>
+              </tr>
             </thead>
             <tbody>
-            <tr>
+              <tr>
               <td></td>
               <td></td>
-            </tr>
+              </tr>
             </tbody>
           </table>
         </div>

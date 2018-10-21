@@ -26,15 +26,15 @@ export class LoginForm extends React.Component<LoginForm.Props, LoginForm.State>
       login: '',
       password: '',
       error: ''
-    }
+    };
   }
 
   handleLoginChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({login: e.target.value})
+    this.setState({ login: e.target.value });
   };
 
   handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({password: e.target.value});
+    this.setState({ password: e.target.value });
   };
 
   handleClickLogin = (): void => {

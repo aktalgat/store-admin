@@ -1,5 +1,5 @@
 import { RouterState } from 'react-router-redux';
-import {UserModel} from "app/models";
+import { UserModel } from 'app/models';
 
 export interface RootState {
   router: RouterState;
@@ -10,5 +10,5 @@ export interface RootState {
 
 export namespace RootState {
   export type LocaleState = any;
-  export type UserState = UserModel
+  export type UserState = UserModel;
 }

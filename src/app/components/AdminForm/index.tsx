@@ -1,13 +1,11 @@
 import * as React from 'react';
-import {CategoryForm, ProductForm} from "app/components";
+import { CategoryForm, ProductForm } from 'app/components';
 
 export namespace AdminForm {
-  export interface Props {
-
-  }
+  export interface Props {}
 
   export interface State {
-    current: string
+    current: string;
   }
 }
 
@@ -16,11 +14,11 @@ export class AdminForm extends React.Component<AdminForm.Props, AdminForm.State>
     super(props);
     this.state = {
       current: 'category'
-    }
+    };
   }
 
   handleClick = (current: string) => {
-    this.setState({current: current});
+    this.setState({ current: current });
   };
 
   render() {
@@ -32,8 +30,12 @@ export class AdminForm extends React.Component<AdminForm.Props, AdminForm.State>
           <li className="nav-item"><span className="nav-span-item" onClick={() => this.handleClick("product")}>Товары</span></li>
         </ul>
         <div id="content-wrapper">
-          <div className={current == "category" ? "" : "d-none"}><CategoryForm/></div>
-          <div className={current == "product" ? "" : "d-none"}><ProductForm/></div>
+          <div className={current == 'category' ? '' : 'd-none'}>
+            <CategoryForm />
+          </div>
+          <div className={current == 'product' ? '' : 'd-none'}>
+            <ProductForm />
+          </div>
         </div>
       </div>
     );

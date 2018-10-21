@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
-import {AdminForm} from "app/components";
+import { AdminForm } from 'app/components';
 
 export namespace Admin {
   export interface Props extends RouteComponentProps<void> {}
@@ -8,6 +8,10 @@ export namespace Admin {
 
 export class Admin extends React.Component<Admin.Props> {
   render() {
-    return <div><AdminForm/></div>;
+    return (
+      <div>
+        <AdminForm />
+      </div>
+    );
   }
 }

@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {connect} from "react-redux";
+import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { LoginForm } from 'app/components';
-import {RootState} from "app/reducers";
-import {bindActionCreators, Dispatch} from "redux";
-import {LoginActions} from "app/actions";
+import { RootState } from 'app/reducers';
+import { bindActionCreators, Dispatch } from 'redux';
+import { LoginActions } from 'app/actions';
 
 export namespace Login {
   export interface Props extends RouteComponentProps<void> {
@@ -30,6 +30,6 @@ export class Login extends React.Component<Login.Props> {
     const { auth } = this.props;
     const loginProps = this.props as LoginForm.Fields;
 
-    return <LoginForm {...loginProps} onSubmit={auth}/>;
+    return <LoginForm {...loginProps} onSubmit={auth} />;
   }
 }

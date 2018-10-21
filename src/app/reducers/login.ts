@@ -1,6 +1,6 @@
-import {RootState} from "app/reducers/state";
-import {handleActions} from "redux-actions";
-import {LoginActions} from "app/actions";
+import { RootState } from 'app/reducers/state';
+import { handleActions } from 'redux-actions';
+import { LoginActions } from 'app/actions';
 
 const initialState: RootState.UserState = {
   userName: '',

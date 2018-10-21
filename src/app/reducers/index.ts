@@ -3,7 +3,7 @@ import { RootState } from './state';
 import { routerReducer, RouterState } from 'react-router-redux';
 import { intlReducer } from 'react-intl-redux';
 import { localesReducer } from './locales';
-import { loginReducer} from "./login";
+import { loginReducer } from './login';
 
 export { RootState, RouterState };
 

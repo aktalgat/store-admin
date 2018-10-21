@@ -3,12 +3,12 @@ import { stringify } from 'query-string';
 
 const getProps = {
   method: 'GET',
-  headers: { 'Content-Type': 'application/json', 'Authorization': ''},
+  headers: { 'Content-Type': 'application/json', Authorization: '' }
 };
 
 const postProps = {
   method: 'POST',
-  headers: { 'Content-Type': 'application/json', 'Authorization': ''},
+  headers: { 'Content-Type': 'application/json', Authorization: '' }
 };
 
 const fetchWrap = (path: any, props = postProps, query: string = '', data: any = null) => {
