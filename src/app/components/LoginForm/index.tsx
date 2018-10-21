@@ -76,7 +76,7 @@ export class LoginForm extends React.Component<LoginForm.Props, LoginForm.State>
               <input type="checkbox" value="remember-me" /> Remember me{' '}
             </label>
           </div>
-          <button className="btn btn-lg btn-primary btn-block" type="submit" onClick={this.handleClickLogin}>
+          <button className="btn btn-lg btn-primary btn-block" type="button" onClick={this.handleClickLogin}>
             Log in
           </button>
           <p className="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
