@@ -15,6 +15,7 @@ export namespace LoginForm {
   export interface State {
     login: string;
     password: string;
+    remember: boolean;
     error: string;
   }
 }
@@ -25,6 +26,7 @@ export class LoginForm extends React.Component<LoginForm.Props, LoginForm.State>
     this.state = {
       login: '',
       password: '',
+      remember: false,
       error: ''
     };
   }
@@ -37,10 +39,15 @@ export class LoginForm extends React.Component<LoginForm.Props, LoginForm.State>
     this.setState({ password: e.target.value });
   };
 
+  handleRememberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({ remember: e.target.checked });
+  };
+
   handleClickLogin = (): void => {
     this.props.onSubmit({
       login: this.state.login,
-      password: this.state.password
+      password: this.state.password,
+      remember: this.state.remember
     });
   };
 
@@ -73,7 +80,7 @@ export class LoginForm extends React.Component<LoginForm.Props, LoginForm.State>
             onChange={this.handlePasswordChange} />
           <div className="checkbox mb-3">
             <label>
-              <input type="checkbox" value="remember-me" /> Remember me{' '}
+              <input type="checkbox" defaultChecked={false} onChange={this.handleRememberChange} /> Remember me{' '}
             </label>
           </div>
           <button className="btn btn-lg btn-primary btn-block" type="button" onClick={this.handleClickLogin}>
