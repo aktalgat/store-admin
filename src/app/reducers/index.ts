@@ -4,6 +4,7 @@ import { routerReducer, RouterState } from 'react-router-redux';
 import { intlReducer } from 'react-intl-redux';
 import { localesReducer } from './locales';
 import { loginReducer } from './login';
+import { categoriesReducer } from './categories';
 
 export { RootState, RouterState };
 
@@ -13,5 +14,6 @@ export const rootReducer = combineReducers<RootState>({
   router: routerReducer as any,
   intl: intlReducer,
   locales: localesReducer,
-  user: loginReducer as any
+  user: loginReducer as any,
+  categories: categoriesReducer as any
 });
