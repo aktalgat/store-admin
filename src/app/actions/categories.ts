@@ -1,6 +1,6 @@
 import {createAction} from "redux-actions";
 
-export namespace CategoryActions {
+export namespace CategoriesActions {
   export enum Type {
     FETCH_CATEGORIES = 'FETCH_CATEGORIES',
     REQUEST_CATEGORIES = 'REQUEST_CATEGORIES',
