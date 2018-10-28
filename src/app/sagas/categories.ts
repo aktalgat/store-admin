@@ -1,6 +1,6 @@
-import {call, fork, put, takeEvery} from "redux-saga/effects";
+import { call, fork, put, takeEvery } from 'redux-saga/effects';
 import api from 'app/api';
-import {CategoriesActions} from "app/actions";
+import { CategoriesActions } from 'app/actions';
 
 export function* fetchCategories(data: any) {
   yield put(CategoriesActions.requestCategories());
