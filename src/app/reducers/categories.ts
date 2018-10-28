@@ -1,6 +1,6 @@
-import {RootState} from "app/reducers/state";
-import {handleActions} from "redux-actions";
-import {CategoriesActions} from "app/actions";
+import { RootState } from 'app/reducers/state';
+import { handleActions } from 'redux-actions';
+import { CategoriesActions } from 'app/actions';
 
 const initialState: RootState.CategoriesState = {
   categories: [],
@@ -11,13 +11,13 @@ const initialState: RootState.CategoriesState = {
 export const categoriesReducer = handleActions<RootState.CategoriesState, any>(
   {
     [CategoriesActions.Type.REQUEST_CATEGORIES]: (state, action) => {
-      return {...state, isFetching: true}
+      return { ...state, isFetching: true };
     },
     [CategoriesActions.Type.RECEIVE_CATEGORIES]: (state, action) => {
-      return {...state, isFetching: false}
+      return { ...state, isFetching: false };
     },
     [CategoriesActions.Type.RECEIVE_FAIL_CATEGORIES]: (state, action) => {
-      return {...state, isFetching: false}
+      return { ...state, isFetching: false };
     }
   },
   initialState

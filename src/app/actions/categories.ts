@@ -1,4 +1,4 @@
-import {createAction} from "redux-actions";
+import { createAction } from 'redux-actions';
 
 export namespace CategoriesActions {
   export enum Type {

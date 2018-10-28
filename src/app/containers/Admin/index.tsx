@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Redirect, RouteComponentProps} from 'react-router';
+import { Redirect, RouteComponentProps } from 'react-router';
 import { AdminForm } from 'app/components';
 
 export namespace Admin {
@@ -16,7 +16,7 @@ export class Admin extends React.Component<Admin.Props> {
     if (this.isAuth()) {
       return <AdminForm />;
     } else {
-      return <Redirect to="/login"/>
+      return <Redirect to="/login" />;
     }
   }
 }

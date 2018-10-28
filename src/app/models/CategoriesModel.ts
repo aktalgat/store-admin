@@ -1,4 +1,4 @@
-import {CategoryModel} from "./CategoryModel";
+import { CategoryModel } from './CategoryModel';
 
 export interface CategoriesModel {
   categories: CategoryModel[];

@@ -1,10 +1,8 @@
 import * as React from 'react';
-import {Button, Modal, ModalBody, ModalFooter, ModalHeader} from "reactstrap";
+import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 
 export namespace ProductForm {
-  export interface Props {
-
-  }
+  export interface Props {}
 
   export interface State {
     modal: boolean;
@@ -16,13 +14,13 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
     super(props);
     this.state = {
       modal: false
-    }
+    };
   }
 
   toggle = () => {
     this.setState({
       modal: !this.state.modal
-    })
+    });
   };
 
   render() {
@@ -30,21 +28,21 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
       <div>
         <table className="table table-bordered">
           <thead>
-          <tr className="text-center">
-            <th>№ п/п</th>
-            <th>Наименование</th>
-            <th>Описание</th>
-            <th>Краткое описание</th>
-            <th>Дополнительная информация</th>
-            <th>Значок</th>
-            <th>Цена</th>
-            <th>Старая цена</th>
-            <th>Звезды</th>
-            <th>Изображения</th>
-          </tr>
+            <tr className="text-center">
+              <th>№ п/п</th>
+              <th>Наименование</th>
+              <th>Описание</th>
+              <th>Краткое описание</th>
+              <th>Дополнительная информация</th>
+              <th>Значок</th>
+              <th>Цена</th>
+              <th>Старая цена</th>
+              <th>Звезды</th>
+              <th>Изображения</th>
+            </tr>
           </thead>
           <tbody>
-          <tr>
+            <tr>
             <td></td>
             <td></td>
             <td></td>
@@ -55,7 +53,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
             <td></td>
             <td></td>
             <td></td>
-          </tr>
+            </tr>
           </tbody>
         </table>
 
