@@ -6,6 +6,7 @@ export const post = (data: any) => {
 
 export const put = (data: any) => {
   try {
+    clearStorage();
     if (data.params.remember) {
       localStorage.setItem('token', data.response.accessToken);
     } else {
@@ -15,6 +16,11 @@ export const put = (data: any) => {
   } catch (e) {
     return { error: e.message };
   }
+};
+
+const clearStorage = () => {
+  localStorage.removeItem('token');
+  sessionStorage.removeItem('token');
 };
 
 export const remove = () => {
