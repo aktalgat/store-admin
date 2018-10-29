@@ -32,3 +32,7 @@ export const remove = () => {
     return { error: e.message };
   }
 };
+
+export const isAdmin = (list: any): boolean => {
+  return list.filter((item: any) => item.authority == 'ROLE_ADMIN').length > 0;
+};
