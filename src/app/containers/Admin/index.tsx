@@ -31,7 +31,7 @@ export class Admin extends React.Component<Admin.Props> {
   }
 
   isAuth(): boolean {
-    let token = sessionStorage.getItem('token') || '';
+    let token = localStorage.getItem('token') || sessionStorage.getItem('token') || '';
     return token != null && token !== '';
   }
 
