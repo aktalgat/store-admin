@@ -2,14 +2,21 @@ import api from '../api/index';
 import { call, fork, put, takeEvery } from 'redux-saga/effects';
 import { push } from 'react-router-redux';
 import { LoginActions } from 'app/actions/index';
+import * as jwt from 'jwt-decode';
 
 export function* login(data: any) {
   yield put(LoginActions.loginRequest(data));
   try {
     const { response, error } = yield call(api.login.post, data.payload);
     if (response) {
-      yield put(LoginActions.loginDone(response, data.payload));
-      yield put(push('/admin'));
+      let token: any = jwt(response.accessToken);
+      let isAdmin = api.login.isAdmin(token.roles);
+      if (isAdmin) {
+        yield put(LoginActions.loginDone(response, data.payload));
+        yield put(push('/admin'));
+      } else {
+        yield put(LoginActions.loginFail({error: 'You are not allowed'}));
+      }
     } else {
       yield put(LoginActions.loginFail(error));
     }
