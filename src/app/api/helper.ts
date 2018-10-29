@@ -39,7 +39,8 @@ const fetchWrap = (path: any, props = postProps, query: string = '', data: any =
 export const fetchGET = (path: any, data: any) => {
   const query = stringify(data);
   let props = getProps;
-  props.headers.Authorization = 'Bearer ' + (sessionStorage.getItem('token') || '');
+  let token = sessionStorage.getItem('token') || localStorage.getItem('token') || '';
+  props.headers.Authorization = 'Bearer ' + token;
   return fetchWrap(path, props, query);
 };
 
@@ -48,6 +49,7 @@ export const fetchPOST = (path: any, data: any, query: any = '') => {
     query = stringify(query);
   }
   let props = postProps;
-  props.headers.Authorization = 'Bearer ' + (sessionStorage.getItem('token') || '');
+  let token = sessionStorage.getItem('token') || localStorage.getItem('token') || '';
+  props.headers.Authorization = 'Bearer ' + token;
   return fetchWrap(path, props, query, data);
 };
