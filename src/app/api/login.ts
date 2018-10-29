@@ -6,8 +6,12 @@ export const post = (data: any) => {
 
 export const put = (data: any) => {
   try {
-    sessionStorage.setItem('token', data.accessToken);
-    return { response: { token: data.accessToken } };
+    if (data.params.remember) {
+      localStorage.setItem('token', data.response.accessToken);
+    } else {
+      sessionStorage.setItem('token', data.response.accessToken);
+    }
+    return { response: { token: data.response.accessToken } };
   } catch (e) {
     return { error: e.message };
   }
@@ -16,6 +20,7 @@ export const put = (data: any) => {
 export const remove = () => {
   try {
     sessionStorage.removeItem('token');
+    localStorage.removeItem('token');
     return { response: { token: '' } };
   } catch (e) {
     return { error: e.message };

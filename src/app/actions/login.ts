@@ -12,7 +12,7 @@ export namespace LoginActions {
 
   export const login = createAction(Type.LOGIN, (params: any) => params);
   export const loginRequest = createAction(Type.LOGIN_REQUEST, (params: any) => params);
-  export const loginDone = createAction(Type.LOGIN_DONE, (params: any) => params);
+  export const loginDone = createAction(Type.LOGIN_DONE, (response: any, params: any) => ({response, params}));
   export const loginFail = createAction(Type.LOGIN_FAIL, (error: any) => error);
 
   export const logout = createAction(Type.LOGOUT);

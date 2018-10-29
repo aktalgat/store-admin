@@ -8,7 +8,7 @@ export function* login(data: any) {
   try {
     const { response, error } = yield call(api.login.post, data.payload);
     if (response) {
-      yield put(LoginActions.loginDone(response));
+      yield put(LoginActions.loginDone(response, data.payload));
       yield put(push('/admin'));
     } else {
       yield put(LoginActions.loginFail(error));
