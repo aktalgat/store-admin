@@ -7,7 +7,12 @@ export namespace LoginActions {
     LOGIN_DONE = 'LOGIN_DONE',
     LOGIN_FAIL = 'LOGIN_FAIL',
 
-    LOGOUT = 'LOGOUT'
+    LOGOUT = 'LOGOUT',
+
+    CHECK_TOKEN = "CHECK_TOKEN",
+    CHECK_TOKEN_REQUEST = "CHECK_TOKEN_REQUEST",
+    CHECK_TOKEN_DONE = "CHECK_TOKEN_DONE",
+    CHECK_TOKEN_FAIL = "CHECK_TOKEN_FAIL"
   }
 
   export const login = createAction(Type.LOGIN, (params: any) => params);
@@ -16,4 +21,9 @@ export namespace LoginActions {
   export const loginFail = createAction(Type.LOGIN_FAIL, (error: any) => error);
 
   export const logout = createAction(Type.LOGOUT);
+
+  export const checkToken = createAction(Type.CHECK_TOKEN, (params: any) => params);
+  export const checkTokenRequest = createAction(Type.CHECK_TOKEN_REQUEST, (params: any) => params);
+  export const checkTokenDone = createAction(Type.CHECK_TOKEN_DONE, (params: any) => params);
+  export const checkTokenFail = createAction(Type.CHECK_TOKEN_FAIL, (params: any) => params);
 }
