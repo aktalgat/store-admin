@@ -1,4 +1,5 @@
 import { fetchPOST } from './helper';
+import * as jwt from "jwt-decode";
 
 export const post = (data: any) => {
   return fetchPOST('api/public/auth/signin', data);
@@ -35,4 +36,18 @@ export const remove = () => {
 
 export const isAdmin = (list: any): boolean => {
   return list.filter((item: any) => item.authority == 'ROLE_ADMIN').length > 0;
+};
+
+export const decodeToken = (accessToken: string) => {
+  console.log('access token: {}', accessToken);
+  let token: any = jwt(accessToken);
+  let state = {
+    userName: token.userName,
+    email: token.userEmail,
+    login: token.login
+  };
+  console.log('token: {}', token);
+  console.log('date: {}', Math.round(new Date().getTime() / 1000));
+  const now = Math.round(new Date().getTime() / 1000);
+  return {isExpired: token.exp < now, state: {...state}};
 };
