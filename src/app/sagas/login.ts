@@ -11,8 +11,8 @@ export function* login(data: any) {
     if (response) {
       let token: any = jwt(response.accessToken);
       let isAdmin = api.login.isAdmin(token.roles);
+      yield put(LoginActions.loginDone(response, data.payload));
       if (isAdmin) {
-        yield put(LoginActions.loginDone(response, data.payload));
         yield put(push('/admin'));
       } else {
         yield put(push('/'));
