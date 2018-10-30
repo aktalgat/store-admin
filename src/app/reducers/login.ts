@@ -1,7 +1,7 @@
 import { RootState } from 'app/reducers/state';
 import { handleActions } from 'redux-actions';
 import { LoginActions } from 'app/actions';
-import * as jwt from 'jwt-decode';
+import api from '../api/index';
 
 const initialState: RootState.UserState = {
   userName: '',
@@ -16,16 +16,8 @@ export const loginReducer = handleActions<RootState.UserState, any>(
       return { ...state, error: '' };
     },
     [LoginActions.Type.LOGIN_DONE]: (state, action) => {
-      console.log('login done: {}', action);
-      let token: any = jwt(action.payload.response.accessToken);
-      let newState = {
-        userName: token.userName,
-        email: token.userEmail,
-        login: token.login
-      };
-      console.log('token: {}', token);
-      console.log('date: {}', Math.round(new Date().getTime() / 1000));
-      return { ...state, newState}
+      const resp: any = api.login.decodeToken(action.payload.response.accessToken);
+      return { ...state, ...resp.state}
     },
     [LoginActions.Type.LOGIN_FAIL]: (state, action) => {
       console.log('action: {}', action.payload);
