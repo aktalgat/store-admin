@@ -20,9 +20,11 @@ export const loginReducer = handleActions<RootState.UserState, any>(
       let token: any = jwt(action.payload.response.accessToken);
       let newState = {
         userName: token.userName,
-        email: token.userEmail
+        email: token.userEmail,
+        login: token.login
       };
       console.log('token: {}', token);
+      console.log('date: {}', Math.round(new Date().getTime() / 1000));
       return { ...state, newState}
     },
     [LoginActions.Type.LOGIN_FAIL]: (state, action) => {
