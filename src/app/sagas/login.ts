@@ -15,7 +15,7 @@ export function* login(data: any) {
         yield put(LoginActions.loginDone(response, data.payload));
         yield put(push('/admin'));
       } else {
-        yield put(LoginActions.loginFail({error: 'You are not allowed'}));
+        yield put(push('/'));
       }
     } else {
       yield put(LoginActions.loginFail(error));
