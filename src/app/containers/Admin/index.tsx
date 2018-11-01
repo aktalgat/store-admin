@@ -46,6 +46,7 @@ export class Admin extends React.Component<Admin.Props, Admin.State> {
   }
 
   componentWillReceiveProps(nextProps: Admin.Props) {
+    console.log('next props: {}', nextProps);
     this.setState({isExpired: nextProps.user.isExpired});
   }
 
@@ -55,7 +56,7 @@ export class Admin extends React.Component<Admin.Props, Admin.State> {
 
   render() {
     if (!this.state.isExpired) {
-      return <AdminForm />;
+      return <AdminForm categories={this.props.categories}/>;
     } else {
       return <Redirect to="/login" />;
     }

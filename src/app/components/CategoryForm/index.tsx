@@ -1,8 +1,11 @@
 import * as React from 'react';
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
+import {CategoryModel} from "app/models";
 
 export namespace CategoryForm {
-  export interface Props {}
+  export interface Props {
+    categories: CategoryModel[]
+  }
 
   export interface State {
     modal: boolean;
