@@ -25,6 +25,10 @@ export function* login(data: any) {
   }
 }
 
+export function* watchLogin() {
+  yield takeEvery(LoginActions.Type.LOGIN, login);
+}
+
 export function* logout() {
   yield call(api.login.remove);
   yield put(push('/login'));
@@ -42,12 +46,27 @@ export function* watchLoginDone() {
   yield takeEvery(LoginActions.Type.LOGIN_DONE, loginDone);
 }
 
-export function* watchLogin() {
-  yield takeEvery(LoginActions.Type.LOGIN, login);
+export function* checkToken(data: any) {
+  yield put(LoginActions.checkTokenRequest(data));
+  try {
+    let token = yield call(api.login.getToken);
+    if (token && token != '') {
+      yield put(LoginActions.checkTokenDone(token));
+    } else {
+      yield put(LoginActions.checkTokenFail({error: 'No token'}));
+    }
+  } catch (e) {
+    yield put(LoginActions.checkTokenFail(e));
+  }
+}
+
+export function* watchCheckToken() {
+  yield takeEvery(LoginActions.Type.CHECK_TOKEN, checkToken);
 }
 
 export default function* root() {
   yield fork(watchLogin);
   yield fork(watchLoginDone);
   yield fork(watchLogout);
+  yield fork(watchCheckToken);
 }
