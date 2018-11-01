@@ -20,9 +20,18 @@ export const loginReducer = handleActions<RootState.UserState, any>(
       return { ...state, ...resp.state}
     },
     [LoginActions.Type.LOGIN_FAIL]: (state, action) => {
-      console.log('action: {}', action.payload);
       return { ...state, error: action.payload };
-    }
+    },
+    [LoginActions.Type.CHECK_TOKEN]: (state, action) => {
+      return { ...state, error: ''}
+    },
+    [LoginActions.Type.CHECK_TOKEN_DONE]: (state, action) => {
+      const resp: any = api.login.decodeToken(action.payload);
+      return { ...state, ...resp.state}
+    },
+    [LoginActions.Type.CHECK_TOKEN_FAIL]: (state, action) => {
+      return { ...state, error: action.payload };
+    },
   },
   initialState
 );
