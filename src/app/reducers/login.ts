@@ -7,7 +7,8 @@ const initialState: RootState.UserState = {
   userName: '',
   email: '',
   login: '',
-  error: ''
+  error: '',
+  isExpired: false
 };
 
 export const loginReducer = handleActions<RootState.UserState, any>(

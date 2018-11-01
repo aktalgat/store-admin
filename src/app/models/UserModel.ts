@@ -3,4 +3,5 @@ export interface UserModel {
   email: string;
   login: string;
   error: string;
+  isExpired: boolean
 }
