@@ -26,6 +26,17 @@ export class CategoryForm extends React.Component<CategoryForm.Props, CategoryFo
     });
   };
 
+  getList = () => {
+    let list: any[] = [];
+    this.props.categories.forEach((item, index) => {
+      list.push(<tr key={item.id}>
+        <td>{index + 1}</td>
+        <td>{item.name}</td>
+        </tr>)
+    });
+    return list;
+  };
+
   render() {
     return (
       <div>
@@ -38,10 +49,7 @@ export class CategoryForm extends React.Component<CategoryForm.Props, CategoryFo
               </tr>
             </thead>
             <tbody>
-              <tr>
-              <td></td>
-              <td></td>
-              </tr>
+              {this.getList()}
             </tbody>
           </table>
         </div>
