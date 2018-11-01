@@ -51,3 +51,7 @@ export const decodeToken = (accessToken: string) => {
   const now = Math.round(new Date().getTime() / 1000);
   return {isExpired: token.exp < now, state: {...state}};
 };
+
+export const getToken = (): string => {
+  return localStorage.getItem('token') || sessionStorage.getItem('token') || '';
+};
