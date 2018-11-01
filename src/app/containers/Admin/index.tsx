@@ -8,6 +8,10 @@ import {bindActionCreators, Dispatch} from "redux";
 import {CategoriesActions, LoginActions} from "app/actions";
 
 export namespace Admin {
+  export interface State {
+    isExpired: boolean
+  }
+
   export interface Props extends RouteComponentProps<void> {
     categories: CategoryModel[],
     user: UserModel,
@@ -29,22 +33,28 @@ export namespace Admin {
     checkToken: bindActionCreators(LoginActions.checkToken, dispatch)
   })
 )
-export class Admin extends React.Component<Admin.Props> {
+export class Admin extends React.Component<Admin.Props, Admin.State> {
+  constructor(props: Admin.Props) {
+    super(props);
+    this.state = {
+      isExpired: false
+    }
+  }
+
   componentWillMount() {
     this.props.checkToken();
+  }
+
+  componentWillReceiveProps(nextProps: Admin.Props) {
+    this.setState({isExpired: nextProps.user.isExpired});
   }
 
   componentDidMount() {
     this.props.fetch();
   }
 
-  isAuth(): boolean {
-    let token = localStorage.getItem('token') || sessionStorage.getItem('token') || '';
-    return token != null && token !== '';
-  }
-
   render() {
-    if (this.isAuth()) {
+    if (!this.state.isExpired) {
       return <AdminForm />;
     } else {
       return <Redirect to="/login" />;
