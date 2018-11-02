@@ -4,7 +4,9 @@ import {CategoryModel} from "app/models";
 
 export namespace AdminForm {
   export interface Props {
-    categories: CategoryModel[]
+    categories: CategoryModel[],
+
+    addCategory: any
   }
 
   export interface State {
@@ -35,7 +37,7 @@ export class AdminForm extends React.Component<AdminForm.Props, AdminForm.State>
         </ul>
         <div id="content-wrapper">
           <div className={current == 'category' ? '' : 'd-none'}>
-            <CategoryForm categories={categories}/>
+            <CategoryForm categories={categories} addCategory={this.props.addCategory} />
           </div>
           <div className={current == 'product' ? '' : 'd-none'}>
             <ProductForm />
