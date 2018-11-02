@@ -26,8 +26,7 @@ const clearStorage = () => {
 
 export const remove = () => {
   try {
-    sessionStorage.removeItem('token');
-    localStorage.removeItem('token');
+    clearStorage();
     return { response: { token: '' } };
   } catch (e) {
     return { error: e.message };
