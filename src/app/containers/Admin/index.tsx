@@ -16,7 +16,8 @@ export namespace Admin {
     categories: CategoryModel[],
     user: UserModel,
 
-    fetch: any,
+    fetchCategories: any,
+    addCategory: any,
     checkToken: any
   }
 }
@@ -28,8 +29,9 @@ export namespace Admin {
       user: state.user
     }
   },
-  (dispatch: Dispatch): Pick<Admin.Props, 'fetch' | 'checkToken'> => ({
-    fetch: bindActionCreators(CategoriesActions.fetchCategories, dispatch),
+  (dispatch: Dispatch): Pick<Admin.Props, 'fetchCategories' | 'addCategory' | 'checkToken'> => ({
+    fetchCategories: bindActionCreators(CategoriesActions.fetchCategories, dispatch),
+    addCategory: bindActionCreators(CategoriesActions.addCategory, dispatch),
     checkToken: bindActionCreators(LoginActions.checkToken, dispatch)
   })
 )
@@ -51,12 +53,12 @@ export class Admin extends React.Component<Admin.Props, Admin.State> {
   }
 
   componentDidMount() {
-    this.props.fetch();
+    this.props.fetchCategories();
   }
 
   render() {
     if (!this.state.isExpired) {
-      return <AdminForm categories={this.props.categories}/>;
+      return <AdminForm categories={this.props.categories} addCategory={this.props.addCategory} />;
     } else {
       return <Redirect to="/login" />;
     }
