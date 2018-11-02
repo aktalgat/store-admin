@@ -4,10 +4,13 @@ import {CategoryModel} from "app/models";
 
 export namespace CategoryForm {
   export interface Props {
-    categories: CategoryModel[]
+    categories: CategoryModel[],
+
+    addCategory: any
   }
 
   export interface State {
+    name: string;
     modal: boolean;
   }
 }
@@ -16,6 +19,7 @@ export class CategoryForm extends React.Component<CategoryForm.Props, CategoryFo
   constructor(props: CategoryForm.Props) {
     super(props);
     this.state = {
+      name: '',
       modal: false
     };
   }
@@ -35,6 +39,14 @@ export class CategoryForm extends React.Component<CategoryForm.Props, CategoryFo
         </tr>)
     });
     return list;
+  };
+
+  handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({name: e.target.value});
+  };
+
+  handleAddClick = () => {
+    this.props.addCategory(this.state.name);
   };
 
   render() {
@@ -60,12 +72,12 @@ export class CategoryForm extends React.Component<CategoryForm.Props, CategoryFo
             <form>
               <div className="form-group">
                 <label htmlFor="categoryName">Наименование</label>
-                <input type="text" className="form-control" id="categoryName" />
+                <input type="text" className="form-control" id="categoryName" onChange={this.handleNameChange} />
               </div>
             </form>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Добавить</Button>{' '}
+            <Button color="primary" onClick={() => {this.toggle; this.handleAddClick()}}>Добавить</Button>{' '}
             <Button color="secondary" onClick={this.toggle}>Отмена</Button>
           </ModalFooter>
         </Modal>
