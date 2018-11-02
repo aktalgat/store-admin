@@ -20,6 +20,25 @@ export function* watchCategories() {
   yield takeEvery(CategoriesActions.Type.FETCH_CATEGORIES, fetchCategories);
 }
 
+export function* postCategory(data: any) {
+  yield put(CategoriesActions.addCategoryRequest(data));
+  try {
+    const { response, error } = yield call(api.categories.post, data.payload);
+    if (response) {
+      yield put(CategoriesActions.addCategoryDone(response));
+    } else {
+      yield put(CategoriesActions.addCategoryFail(error));
+    }
+  } catch (e) {
+    yield put(CategoriesActions.addCategoryFail(e));
+  }
+}
+
+export function* watchPostCategory() {
+  yield takeEvery(CategoriesActions.Type.ADD_CATEGORY, postCategory);
+}
+
 export default function* root() {
   yield fork(watchCategories);
+  yield fork(watchPostCategory);
 }
