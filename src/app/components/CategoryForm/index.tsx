@@ -46,7 +46,7 @@ export class CategoryForm extends React.Component<CategoryForm.Props, CategoryFo
   };
 
   handleAddClick = () => {
-    this.props.addCategory(this.state.name);
+    this.props.addCategory({name: this.state.name});
   };
 
   render() {
