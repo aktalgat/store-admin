@@ -77,7 +77,7 @@ export class CategoryForm extends React.Component<CategoryForm.Props, CategoryFo
             </form>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={() => {this.toggle; this.handleAddClick()}}>Добавить</Button>{' '}
+            <Button color="primary" onClick={() => {this.toggle(); this.handleAddClick()}}>Добавить</Button>{' '}
             <Button color="secondary" onClick={this.toggle}>Отмена</Button>
           </ModalFooter>
         </Modal>
