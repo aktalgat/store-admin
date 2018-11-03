@@ -38,7 +38,16 @@ export function* watchPostCategory() {
   yield takeEvery(CategoriesActions.Type.ADD_CATEGORY, postCategory);
 }
 
+export function* postCategoryDone(data: any) {
+  yield put(CategoriesActions.fetchCategories(data.payload));
+}
+
+export function* watchPostCategoryDone() {
+  yield takeEvery(CategoriesActions.Type.ADD_CATEGORY_DONE, postCategoryDone);
+}
+
 export default function* root() {
   yield fork(watchCategories);
   yield fork(watchPostCategory);
+  yield fork(watchPostCategoryDone);
 }
