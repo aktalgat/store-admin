@@ -1,5 +1,5 @@
 import { fetchPOST } from './helper';
-import * as jwt from "jwt-decode";
+import * as jwt from 'jwt-decode';
 
 export const post = (data: any) => {
   return fetchPOST('api/public/auth/signin', data);
@@ -48,7 +48,7 @@ export const decodeToken = (accessToken: string) => {
   console.log('token: {}', token);
   console.log('date: {}', Math.round(new Date().getTime() / 1000));
   const now = Math.round(new Date().getTime() / 1000);
-  return {isExpired: token.exp < now, state: {...state}};
+  return { isExpired: token.exp < now, state: { ...state } };
 };
 
 export const getToken = (): string => {

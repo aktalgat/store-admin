@@ -9,10 +9,10 @@ export namespace LoginActions {
 
     LOGOUT = 'LOGOUT',
 
-    CHECK_TOKEN = "CHECK_TOKEN",
-    CHECK_TOKEN_REQUEST = "CHECK_TOKEN_REQUEST",
-    CHECK_TOKEN_DONE = "CHECK_TOKEN_DONE",
-    CHECK_TOKEN_FAIL = "CHECK_TOKEN_FAIL"
+    CHECK_TOKEN = 'CHECK_TOKEN',
+    CHECK_TOKEN_REQUEST = 'CHECK_TOKEN_REQUEST',
+    CHECK_TOKEN_DONE = 'CHECK_TOKEN_DONE',
+    CHECK_TOKEN_FAIL = 'CHECK_TOKEN_FAIL'
   }
 
   export const login = createAction(Type.LOGIN, (params: any) => params);

@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { CategoryForm, ProductForm } from 'app/components';
-import {CategoryModel} from "app/models";
+import { CategoryModel } from 'app/models';
 
 export namespace AdminForm {
   export interface Props {
-    categories: CategoryModel[],
+    categories: CategoryModel[];
 
-    addCategory: any
+    addCategory: any;
   }
 
   export interface State {
@@ -32,8 +32,16 @@ export class AdminForm extends React.Component<AdminForm.Props, AdminForm.State>
     return (
       <div id="wrapper" className="d-flex">
         <ul className="sidebar navbar-nav">
-          <li className="nav-item"><span className="nav-span-item" onClick={() => this.handleClick("category")}>Категории</span></li>
-          <li className="nav-item"><span className="nav-span-item" onClick={() => this.handleClick("product")}>Товары</span></li>
+          <li className="nav-item">
+            <span className="nav-span-item" onClick={() => this.handleClick('category')}>
+              Категории
+            </span>
+          </li>
+          <li className="nav-item">
+            <span className="nav-span-item" onClick={() => this.handleClick('product')}>
+              Товары
+            </span>
+          </li>
         </ul>
         <div id="content-wrapper">
           <div className={current == 'category' ? '' : 'd-none'}>

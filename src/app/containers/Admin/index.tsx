@@ -1,24 +1,24 @@
 import * as React from 'react';
 import { Redirect, RouteComponentProps } from 'react-router';
 import { AdminForm } from 'app/components';
-import {CategoryModel, UserModel} from "app/models";
-import { connect } from "react-redux";
-import { RootState } from "app/reducers";
-import {bindActionCreators, Dispatch} from "redux";
-import {CategoriesActions, LoginActions} from "app/actions";
+import { CategoryModel, UserModel } from 'app/models';
+import { connect } from 'react-redux';
+import { RootState } from 'app/reducers';
+import { bindActionCreators, Dispatch } from 'redux';
+import { CategoriesActions, LoginActions } from 'app/actions';
 
 export namespace Admin {
   export interface State {
-    isExpired: boolean
+    isExpired: boolean;
   }
 
   export interface Props extends RouteComponentProps<void> {
-    categories: CategoryModel[],
-    user: UserModel,
+    categories: CategoryModel[];
+    user: UserModel;
 
-    fetchCategories: any,
-    addCategory: any,
-    checkToken: any
+    fetchCategories: any;
+    addCategory: any;
+    checkToken: any;
   }
 }
 
@@ -27,7 +27,7 @@ export namespace Admin {
     return {
       categories: state.categories.categories,
       user: state.user
-    }
+    };
   },
   (dispatch: Dispatch): Pick<Admin.Props, 'fetchCategories' | 'addCategory' | 'checkToken'> => ({
     fetchCategories: bindActionCreators(CategoriesActions.fetchCategories, dispatch),
@@ -40,7 +40,7 @@ export class Admin extends React.Component<Admin.Props, Admin.State> {
     super(props);
     this.state = {
       isExpired: false
-    }
+    };
   }
 
   componentWillMount() {
@@ -49,7 +49,7 @@ export class Admin extends React.Component<Admin.Props, Admin.State> {
 
   componentWillReceiveProps(nextProps: Admin.Props) {
     console.log('next props: {}', nextProps);
-    this.setState({isExpired: nextProps.user.isExpired});
+    this.setState({ isExpired: nextProps.user.isExpired });
   }
 
   componentDidMount() {

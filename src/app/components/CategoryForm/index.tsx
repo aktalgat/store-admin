@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
-import {CategoryModel} from "app/models";
+import { CategoryModel } from 'app/models';
 
 export namespace CategoryForm {
   export interface Props {
-    categories: CategoryModel[],
+    categories: CategoryModel[];
 
-    addCategory: any
+    addCategory: any;
   }
 
   export interface State {
@@ -33,20 +33,22 @@ export class CategoryForm extends React.Component<CategoryForm.Props, CategoryFo
   getList = () => {
     let list: any[] = [];
     this.props.categories.forEach((item, index) => {
-      list.push(<tr key={item.id}>
-        <td>{index + 1}</td>
-        <td>{item.name}</td>
-        </tr>)
+      list.push(
+        <tr key={item.id}>
+          <td>{index + 1}</td>
+          <td>{item.name}</td>
+        </tr>
+      );
     });
     return list;
   };
 
   handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({name: e.target.value});
+    this.setState({ name: e.target.value });
   };
 
   handleAddClick = () => {
-    this.props.addCategory({name: this.state.name});
+    this.props.addCategory({ name: this.state.name });
   };
 
   render() {

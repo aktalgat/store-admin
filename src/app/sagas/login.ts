@@ -53,7 +53,7 @@ export function* checkToken(data: any) {
     if (token && token != '') {
       yield put(LoginActions.checkTokenDone(token));
     } else {
-      yield put(LoginActions.checkTokenFail({error: 'No token'}));
+      yield put(LoginActions.checkTokenFail({ error: 'No token' }));
     }
   } catch (e) {
     yield put(LoginActions.checkTokenFail(e));
