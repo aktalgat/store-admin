@@ -17,7 +17,7 @@ export const productsReducer = handleActions<RootState.ProductsState, any>(
       return { ...state, products: action.payload, isFetching: false };
     },
     [ProductsActions.Type.RECEIVE_FAIL_PRODUCTS]: (state, action) => {
-      return { ...state, isFetching: false};
+      return { ...state, isFetching: false };
     }
   },
   initialState
