@@ -47,15 +47,12 @@ export class Admin extends React.Component<Admin.Props, Admin.State> {
 
   componentWillMount() {
     this.props.checkToken();
+    this.props.fetchCategories();
   }
 
   componentWillReceiveProps(nextProps: Admin.Props) {
     console.log('next props: {}', nextProps);
     this.setState({ isExpired: nextProps.user.isExpired });
-  }
-
-  componentDidMount() {
-    this.props.fetchCategories();
   }
 
   render() {
