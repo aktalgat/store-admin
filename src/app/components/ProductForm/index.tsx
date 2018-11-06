@@ -5,6 +5,8 @@ import { ProductModel } from 'app/models';
 export namespace ProductForm {
   export interface Props {
     products: ProductModel[];
+
+    addProduct: any;
   }
 
   export interface State {
