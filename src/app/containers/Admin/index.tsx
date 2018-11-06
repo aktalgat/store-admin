@@ -5,7 +5,7 @@ import {CategoryModel, ProductModel, UserModel} from 'app/models';
 import { connect } from 'react-redux';
 import { RootState } from 'app/reducers';
 import { bindActionCreators, Dispatch } from 'redux';
-import { CategoriesActions, LoginActions } from 'app/actions';
+import {CategoriesActions, LoginActions, ProductsActions} from 'app/actions';
 
 export namespace Admin {
   export interface State {
@@ -20,6 +20,7 @@ export namespace Admin {
     fetchCategories: any;
     addCategory: any;
     checkToken: any;
+    fetchProducts: any;
   }
 }
 
@@ -31,10 +32,11 @@ export namespace Admin {
       products: state.products.products
     };
   },
-  (dispatch: Dispatch): Pick<Admin.Props, 'fetchCategories' | 'addCategory' | 'checkToken'> => ({
+  (dispatch: Dispatch): Pick<Admin.Props, 'fetchCategories' | 'addCategory' | 'checkToken' | 'fetchProducts'> => ({
     fetchCategories: bindActionCreators(CategoriesActions.fetchCategories, dispatch),
     addCategory: bindActionCreators(CategoriesActions.addCategory, dispatch),
-    checkToken: bindActionCreators(LoginActions.checkToken, dispatch)
+    checkToken: bindActionCreators(LoginActions.checkToken, dispatch),
+    fetchProducts: bindActionCreators(ProductsActions.fetchProducts, dispatch)
   })
 )
 export class Admin extends React.Component<Admin.Props, Admin.State> {
@@ -58,7 +60,7 @@ export class Admin extends React.Component<Admin.Props, Admin.State> {
   render() {
     if (!this.state.isExpired) {
       return <AdminForm categories={this.props.categories} addCategory={this.props.addCategory}
-            products={this.props.products} />;
+            products={this.props.products} fetchProducts={this.props.fetchProducts} />;
     } else {
       return <Redirect to="/login" />;
     }

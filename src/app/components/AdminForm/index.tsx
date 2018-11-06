@@ -8,10 +8,12 @@ export namespace AdminForm {
     products: ProductModel[];
 
     addCategory: any;
+    fetchProducts: any;
   }
 
   export interface State {
     current: string;
+    isProductsFetched: boolean;
   }
 }
 
@@ -19,12 +21,17 @@ export class AdminForm extends React.Component<AdminForm.Props, AdminForm.State>
   constructor(props: AdminForm.Props) {
     super(props);
     this.state = {
-      current: 'category'
+      current: 'category',
+      isProductsFetched: false
     };
   }
 
   handleClick = (current: string) => {
     this.setState({ current: current });
+    if (current == 'product' && !this.state.isProductsFetched) {
+      this.props.fetchProducts();
+      this.setState({isProductsFetched: true});
+    }
   };
 
   render() {
