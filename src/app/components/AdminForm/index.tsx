@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { CategoryForm, ProductForm } from 'app/components';
-import { CategoryModel } from 'app/models';
+import { CategoryModel, ProductModel } from 'app/models';
 
 export namespace AdminForm {
   export interface Props {
     categories: CategoryModel[];
+    products: ProductModel[];
 
     addCategory: any;
   }
@@ -28,7 +29,7 @@ export class AdminForm extends React.Component<AdminForm.Props, AdminForm.State>
 
   render() {
     const { current } = this.state;
-    const { categories } = this.props;
+    const { categories, products } = this.props;
     return (
       <div id="wrapper" className="d-flex">
         <ul className="sidebar navbar-nav">
@@ -48,7 +49,7 @@ export class AdminForm extends React.Component<AdminForm.Props, AdminForm.State>
             <CategoryForm categories={categories} addCategory={this.props.addCategory} />
           </div>
           <div className={current == 'product' ? '' : 'd-none'}>
-            <ProductForm />
+            <ProductForm products={products} />
           </div>
         </div>
       </div>
