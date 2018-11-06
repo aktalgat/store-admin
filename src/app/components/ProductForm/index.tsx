@@ -26,6 +26,33 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
     });
   };
 
+  getList = () => {
+    let list: any[] = [];
+    this.props.products.forEach((item, index) => {
+      list.push(
+        <tr key={item.id}>
+          <td>{index + 1}</td>
+          <td>{item.name}</td>
+          <td>{item.description}</td>
+          <td>{item.shortDescription}</td>
+          <td>{item.additionalInfo}</td>
+          <td>{item.badge}</td>
+          <td>{item.price}</td>
+          <td>{item.priceOld}</td>
+          <td>{item.stars}</td>
+          <td>{this.getImgList(item.imageUrls)}</td>
+        </tr>
+      )
+    });
+    return list;
+  };
+
+  getImgList = (imageUrls: string[]) => {
+    return imageUrls.map((item) => {
+      return <img src={item}/>
+    });
+  };
+
   render() {
     return (
       <div>
@@ -45,18 +72,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
             </tr>
           </thead>
           <tbody>
-            <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            </tr>
+            {this.getList()}
           </tbody>
         </table>
 
