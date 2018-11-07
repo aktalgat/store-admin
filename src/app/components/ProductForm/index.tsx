@@ -57,20 +57,18 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
           <td>{item.stars}</td>
           <td>{this.getImgList(item.imageUrls)}</td>
         </tr>
-      )
+      );
     });
     return list;
   };
 
   getImgList = (imageUrls: string[]) => {
     return imageUrls.map((item) => {
-      return <img src={item}/>
+      return <img src={item} />;
     });
   };
 
-  handleAddProduct = () => {
-
-  };
+  handleAddProduct = () => {};
 
   render() {
     return (

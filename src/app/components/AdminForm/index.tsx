@@ -31,7 +31,7 @@ export class AdminForm extends React.Component<AdminForm.Props, AdminForm.State>
     this.setState({ current: current });
     if (current == 'product' && !this.state.isProductsFetched) {
       this.props.fetchProducts();
-      this.setState({isProductsFetched: true});
+      this.setState({ isProductsFetched: true });
     }
   };
 
