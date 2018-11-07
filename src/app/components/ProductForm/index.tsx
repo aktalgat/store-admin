@@ -11,6 +11,7 @@ export namespace ProductForm {
 
   export interface State {
     modal: boolean;
+    product: ProductModel;
   }
 }
 
@@ -18,7 +19,19 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
   constructor(props: ProductForm.Props) {
     super(props);
     this.state = {
-      modal: false
+      modal: false,
+      product: {
+        categoryId: 0,
+        name: '',
+        description: '',
+        shortDescription: '',
+        additionalInfo: '',
+        badge: '',
+        price: 0,
+        priceOld: 0,
+        stars: 0,
+        imageUrls: []
+      }
     };
   }
 
@@ -53,6 +66,10 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
     return imageUrls.map((item) => {
       return <img src={item}/>
     });
+  };
+
+  handleAddProduct = () => {
+
   };
 
   render() {
@@ -128,7 +145,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
             </form>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.toggle}>Добавить</Button>{' '}
+            <Button color="primary" onClick={() => {this.toggle(); this.handleAddProduct();}}>Добавить</Button>{' '}
             <Button color="secondary" onClick={this.toggle}>Отмена</Button>
           </ModalFooter>
         </Modal>
