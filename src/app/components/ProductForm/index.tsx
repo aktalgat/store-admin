@@ -11,7 +11,17 @@ export namespace ProductForm {
 
   export interface State {
     modal: boolean;
-    product: ProductModel;
+
+    categoryId: number;
+    name: string;
+    description: string;
+    shortDescription: string;
+    additionalInfo: string;
+    badge: string;
+    price: number;
+    priceOld: number;
+    stars: number;
+    imageUrls: string[];
   }
 }
 
@@ -20,18 +30,16 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
     super(props);
     this.state = {
       modal: false,
-      product: {
-        categoryId: 0,
-        name: '',
-        description: '',
-        shortDescription: '',
-        additionalInfo: '',
-        badge: '',
-        price: 0,
-        priceOld: 0,
-        stars: 0,
-        imageUrls: []
-      }
+      categoryId: 0,
+      name: '',
+      description: '',
+      shortDescription: '',
+      additionalInfo: '',
+      badge: '',
+      price: 0,
+      priceOld: 0,
+      stars: 0,
+      imageUrls: []
     };
   }
 
