@@ -91,7 +91,8 @@ export class LoginForm extends React.Component<LoginForm.Props, LoginForm.State>
             onKeyPress={this.handlePasswordKeyPress} />
           <div className="checkbox mb-3">
             <label>
-              <input type="checkbox" defaultChecked={false} onChange={this.handleRememberChange} /> Remember me{' '}
+              <input type="checkbox" defaultChecked={false} onChange={this.handleRememberChange}
+                     autoComplete={"new-password"} /> Remember me{' '}
             </label>
           </div>
           <button className="btn btn-lg btn-primary btn-block" type="button" onClick={this.handleClickLogin}>
