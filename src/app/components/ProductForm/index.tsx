@@ -78,6 +78,38 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
 
   handleAddProduct = () => {};
 
+  handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({ name: e.target.value });
+  };
+
+  handleDescrChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({ name: e.target.value });
+  };
+
+  handleShortDescrChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({ name: e.target.value });
+  };
+
+  handleAddInfoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({ name: e.target.value });
+  };
+
+  handleBadgeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({ name: e.target.value });
+  };
+
+  handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({ name: e.target.value });
+  };
+
+  handlePriceOldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({ name: e.target.value });
+  };
+
+  handleStarsChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    this.setState({ name: e.target.value });
+  };
+
   render() {
     return (
       <div>
