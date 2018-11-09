@@ -44,6 +44,16 @@ export class LoginForm extends React.Component<LoginForm.Props, LoginForm.State>
   };
 
   handleClickLogin = (): void => {
+    this.submitLogin();
+  };
+
+  handlePasswordKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key == 'Enter') {
+      this.submitLogin();
+    }
+  };
+
+  submitLogin = () => {
     this.props.onSubmit({
       login: this.state.login,
       password: this.state.password,
@@ -77,7 +87,8 @@ export class LoginForm extends React.Component<LoginForm.Props, LoginForm.State>
             className="form-control"
             placeholder="Password"
             required
-            onChange={this.handlePasswordChange} />
+            onChange={this.handlePasswordChange}
+            onKeyPress={this.handlePasswordKeyPress} />
           <div className="checkbox mb-3">
             <label>
               <input type="checkbox" defaultChecked={false} onChange={this.handleRememberChange} /> Remember me{' '}
