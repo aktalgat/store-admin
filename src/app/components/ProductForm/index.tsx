@@ -82,32 +82,32 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
     this.setState({ name: e.target.value });
   };
 
-  handleDescrChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({ name: e.target.value });
+  handleDescriptionChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    this.setState({ description: e.target.value });
   };
 
-  handleShortDescrChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({ name: e.target.value });
+  handleShortDescriptionChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    this.setState({ shortDescription: e.target.value });
   };
 
-  handleAddInfoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({ name: e.target.value });
+  handleAddInfoChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    this.setState({ additionalInfo: e.target.value });
   };
 
   handleBadgeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({ name: e.target.value });
+    this.setState({ badge: e.target.value });
   };
 
   handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({ name: e.target.value });
+    this.setState({ price: +(e.target.value) });
   };
 
   handlePriceOldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({ name: e.target.value });
+    this.setState({ priceOld: +(e.target.value) });
   };
 
   handleStarsChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    this.setState({ name: e.target.value });
+    this.setState({ stars: +(e.target.value) });
   };
 
   render() {
@@ -140,35 +140,35 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
             <form>
               <div className="form-group">
                 <label htmlFor="productName">Наименование</label>
-                <input type="text" className="form-control" id="productName" />
+                <input type="text" className="form-control" id="productName" onChange={this.handleNameChange} />
               </div>
               <div className="form-group">
                 <label htmlFor="productDesc">Описание</label>
-                <textarea className="form-control" id="productDesc" />
+                <textarea className="form-control" id="productDesc" onChange={this.handleDescriptionChange} />
               </div>
               <div className="form-group">
                 <label htmlFor="productShortDesc">Краткое описание</label>
-                <textarea className="form-control" id="productShortDesc" />
+                <textarea className="form-control" id="productShortDesc" onChange={this.handleShortDescriptionChange} />
               </div>
               <div className="form-group">
                 <label htmlFor="productAddInfo">Дополнительная информация</label>
-                <textarea className="form-control" id="productAddInfo" />
+                <textarea className="form-control" id="productAddInfo" onChange={this.handleAddInfoChange} />
               </div>
               <div className="form-group">
                 <label htmlFor="productBadge">Значок</label>
-                <input type="text" className="form-control" id="productBadge" />
+                <input type="text" className="form-control" id="productBadge" onChange={this.handleBadgeChange}/>
               </div>
               <div className="form-group">
                 <label htmlFor="productPrice">Цена</label>
-                <input type="text" className="form-control" id="productPrice" />
+                <input type="text" className="form-control" id="productPrice" onChange={this.handlePriceChange} />
               </div>
               <div className="form-group">
                 <label htmlFor="productOldPrice">Старая цена</label>
-                <input type="text" className="form-control" id="productOldPrice" />
+                <input type="text" className="form-control" id="productOldPrice" onChange={this.handlePriceOldChange} />
               </div>
               <div className="form-group">
                 <label htmlFor="productStars">Звезды</label>
-                <select className="form-control" id="productStars">
+                <select className="form-control" id="productStars" onChange={this.handleStarsChange}>
                   <option>1</option>
                   <option>2</option>
                   <option>3</option>
