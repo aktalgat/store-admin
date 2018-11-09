@@ -9,5 +9,5 @@ export interface ProductModel {
   price: number;
   priceOld: number;
   stars: number;
-  imageUrls: string[];
+  productImageList: string[];
 }

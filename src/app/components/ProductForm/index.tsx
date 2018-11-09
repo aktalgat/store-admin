@@ -21,7 +21,7 @@ export namespace ProductForm {
     price: number;
     priceOld: number;
     stars: number;
-    imageUrls: string[];
+    productImageList: string[];
   }
 }
 
@@ -39,7 +39,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
       price: 0,
       priceOld: 0,
       stars: 0,
-      imageUrls: []
+      productImageList: []
     };
   }
 
@@ -63,7 +63,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
           <td>{item.price}</td>
           <td>{item.priceOld}</td>
           <td>{item.stars}</td>
-          <td>{this.getImgList(item.imageUrls)}</td>
+          <td>{this.getImgList(item.productImageList)}</td>
         </tr>
       );
     });
@@ -76,7 +76,11 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
     });
   };
 
-  handleAddProduct = () => {};
+  handleAddProduct = () => {
+    let product: ProductModel = this.state as ProductModel;
+    console.log('product {}', product);
+    this.props.addProduct(product);
+  };
 
   handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({ name: e.target.value });
