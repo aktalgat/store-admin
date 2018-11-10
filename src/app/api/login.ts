@@ -38,7 +38,6 @@ export const isAdmin = (list: any): boolean => {
 };
 
 export const decodeToken = (accessToken: string) => {
-  console.log('access token: {}', accessToken);
   let token: any = jwt(accessToken);
   let state = {
     userName: token.userName,
