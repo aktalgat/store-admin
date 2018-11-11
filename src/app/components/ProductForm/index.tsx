@@ -102,15 +102,15 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
   };
 
   handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({ price: +(e.target.value) });
+    this.setState({ price: +e.target.value });
   };
 
   handlePriceOldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({ priceOld: +(e.target.value) });
+    this.setState({ priceOld: +e.target.value });
   };
 
   handleStarsChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    this.setState({ stars: +(e.target.value) });
+    this.setState({ stars: +e.target.value });
   };
 
   render() {
@@ -131,9 +131,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
               <th>Изображения</th>
             </tr>
           </thead>
-          <tbody>
-            {this.getList()}
-          </tbody>
+          <tbody>{this.getList()}</tbody>
         </table>
 
         <div><button className="btn btn-primary" onClick={this.toggle}>Новый товар</button></div>

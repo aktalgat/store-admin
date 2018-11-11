@@ -45,7 +45,6 @@ export const decodeToken = (accessToken: string) => {
     login: token.login
   };
   console.log('token: {}', token);
-  console.log('date: {}', Math.round(new Date().getTime() / 1000));
   const now = Math.round(new Date().getTime() / 1000);
   return { isExpired: token.exp < now, state: { ...state } };
 };
