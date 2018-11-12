@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
-import { ProductModel } from 'app/models';
+import {CategoryModel, ProductModel} from 'app/models';
 
 export namespace ProductForm {
   export interface Props {
     products: ProductModel[];
+    categories: CategoryModel[];
 
     addProduct: any;
   }
@@ -56,6 +57,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
         <tr key={item.id}>
           <td>{index + 1}</td>
           <td>{item.name}</td>
+          <td>{item.categoryId}</td>
           <td>{item.description}</td>
           <td>{item.shortDescription}</td>
           <td>{item.additionalInfo}</td>
@@ -121,6 +123,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
             <tr className="text-center">
               <th>№ п/п</th>
               <th>Наименование</th>
+              <th>Категория</th>
               <th>Описание</th>
               <th>Краткое описание</th>
               <th>Дополнительная информация</th>
