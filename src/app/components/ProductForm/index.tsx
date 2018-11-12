@@ -44,6 +44,12 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
     };
   }
 
+  componentWillReceiveProps(nextProps: ProductForm.Props) {
+    if (nextProps.categories.length > 0 && this.state.categoryId != nextProps.categories[0].id) {
+      this.setState({categoryId: nextProps.categories[0].id});
+    }
+  }
+
   toggle = () => {
     this.setState({
       modal: !this.state.modal
@@ -85,7 +91,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
   };
 
   handleAddProduct = () => {
-    let product: ProductModel = this.state as ProductModel;
+    let product: ProductModel = this.state;
     this.props.addProduct(product);
   };
 
@@ -123,6 +129,12 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
 
   handleStarsChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     this.setState({ stars: +e.target.value });
+  };
+
+  handleImageListChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let list = this.state.productImageList;
+    list.push(e.target.value);
+    this.setState({productImageList: list});
   };
 
   render() {
@@ -198,7 +210,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
               </div>
               <div className="form-group">
                 <label htmlFor="productImages">Изображения</label>
-                <input type="file" className="form-control-file" id="productImages" />
+                <input type="text" className="form-control" id="productImages" onChange={this.handleImageListChange}  />
               </div>
             </form>
           </ModalBody>
