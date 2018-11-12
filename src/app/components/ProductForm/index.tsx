@@ -78,6 +78,12 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
     });
   };
 
+  getCategoryList = () => {
+    return this.props.categories.map((item) => {
+      return <option key={item.id} value={item.id}>{item.name}</option>
+    });
+  };
+
   handleAddProduct = () => {
     let product: ProductModel = this.state as ProductModel;
     this.props.addProduct(product);
@@ -85,6 +91,10 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
 
   handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({ name: e.target.value });
+  };
+
+  handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    this.setState({ categoryId: +e.target.value });
   };
 
   handleDescriptionChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -145,6 +155,12 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
               <div className="form-group">
                 <label htmlFor="productName">Наименование</label>
                 <input type="text" className="form-control" id="productName" onChange={this.handleNameChange} />
+              </div>
+              <div className="form-group">
+                <label htmlFor="category">Категория</label>
+                <select className="form-control" id="category" onChange={this.handleCategoryChange}>
+                  {this.getCategoryList()}
+                </select>
               </div>
               <div className="form-group">
                 <label htmlFor="productDesc">Описание</label>
