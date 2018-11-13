@@ -210,7 +210,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
               </div>
               <div className="form-group">
                 <label htmlFor="productImages">Изображения</label>
-                <input type="text" className="form-control" id="productImages" onChange={this.handleImageListChange}  />
+                <input type="text" className="form-control" id="productImages" onChange={this.handleImageListChange} />
               </div>
             </form>
           </ModalBody>
