@@ -91,7 +91,18 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
   };
 
   handleAddProduct = () => {
-    let product: ProductModel = this.state;
+    let product: ProductModel = {
+      name: this.state.name,
+      categoryId: this.state.categoryId,
+      description: this.state.description,
+      shortDescription: this.state.shortDescription,
+      additionalInfo: this.state.additionalInfo,
+      badge: this.state.badge,
+      price: this.state.price,
+      priceOld: this.state.priceOld,
+      stars: this.state.stars,
+      productImageList: this.state.productImageList
+    };
     this.props.addProduct(product);
   };
 
