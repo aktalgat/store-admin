@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
-import {CategoryModel, ProductModel} from 'app/models';
+import {CategoryModel, ProductImageModel, ProductModel} from 'app/models';
 
 export namespace ProductForm {
   export interface Props {
@@ -39,7 +39,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
       badge: '',
       price: 0,
       priceOld: 0,
-      stars: 0,
+      stars: 1,
       productImageList: []
     };
   }
@@ -53,6 +53,21 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
   toggle = () => {
     this.setState({
       modal: !this.state.modal
+    });
+  };
+
+  clearState = () => {
+    this.setState({
+      categoryId: this.props.categories[0].id,
+      name: '',
+      description: '',
+      shortDescription: '',
+      additionalInfo: '',
+      badge: '',
+      price: 0,
+      priceOld: 0,
+      stars: 1,
+      productImageList: []
     });
   };
 
@@ -78,9 +93,9 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
     return list;
   };
 
-  getImgList = (imageUrls: string[]) => {
+  getImgList = (imageUrls: ProductImageModel[]) => {
     return imageUrls.map((item) => {
-      return <img src={item} />;
+      return <img key={item.id} src={item.url} />;
     });
   };
 
@@ -91,7 +106,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
   };
 
   handleAddProduct = () => {
-    let product: ProductModel = {
+    let product = {
       name: this.state.name,
       categoryId: this.state.categoryId,
       description: this.state.description,
@@ -104,6 +119,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
       productImageList: this.state.productImageList
     };
     this.props.addProduct(product);
+    this.clearState();
   };
 
   handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
