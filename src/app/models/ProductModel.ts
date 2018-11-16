@@ -1,3 +1,5 @@
+import {ProductImageModel} from './ProductImageModel';
+
 export interface ProductModel {
   id?: number;
   categoryId: number;
@@ -9,5 +11,5 @@ export interface ProductModel {
   price: number;
   priceOld: number;
   stars: number;
-  productImageList: string[];
+  productImageList: ProductImageModel[];
 }
