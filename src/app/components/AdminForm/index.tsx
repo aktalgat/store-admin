@@ -57,7 +57,11 @@ export class AdminForm extends React.Component<AdminForm.Props, AdminForm.State>
             <CategoryForm categories={categories} addCategory={this.props.addCategory} />
           </div>
           <div className={current == 'product' ? '' : 'd-none'}>
-            <ProductForm products={products} addProduct={this.props.addProduct} categories={categories} />
+            <ProductForm
+              products={products}
+              addProduct={this.props.addProduct}
+              categories={categories}
+            />
           </div>
         </div>
       </div>

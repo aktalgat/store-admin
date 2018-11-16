@@ -1,4 +1,4 @@
-import {ProductImageModel} from './ProductImageModel';
+import { ProductImageModel } from './ProductImageModel';
 
 export interface ProductModel {
   id?: number;

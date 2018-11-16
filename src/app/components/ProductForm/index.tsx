@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
-import {CategoryModel, ProductImageModel, ProductModel} from 'app/models';
+import { CategoryModel, ProductImageModel, ProductModel } from 'app/models';
 
 export namespace ProductForm {
   export interface Props {
@@ -46,7 +46,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
 
   componentWillReceiveProps(nextProps: ProductForm.Props) {
     if (nextProps.categories.length > 0 && this.state.categoryId != nextProps.categories[0].id) {
-      this.setState({categoryId: nextProps.categories[0].id});
+      this.setState({ categoryId: nextProps.categories[0].id });
     }
   }
 
@@ -161,7 +161,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
   handleImageListChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     let list = this.state.productImageList;
     list.push(e.target.value);
-    this.setState({productImageList: list});
+    this.setState({ productImageList: list });
   };
 
   render() {
