@@ -31,6 +31,12 @@ export class LoginForm extends React.Component<LoginForm.Props, LoginForm.State>
     };
   }
 
+  componentWillReceiveProps(nextProps: LoginForm.Props) {
+    if (this.state.error != nextProps.error) {
+      this.setState({error: nextProps.error});
+    }
+  }
+
   handleLoginChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({ login: e.target.value });
   };
@@ -89,11 +95,14 @@ export class LoginForm extends React.Component<LoginForm.Props, LoginForm.State>
             required
             onChange={this.handlePasswordChange}
             onKeyPress={this.handlePasswordKeyPress} />
-          <div className="checkbox mb-3">
+          <div className="checkbox">
             <label>
               <input type="checkbox" defaultChecked={false} onChange={this.handleRememberChange}
                      autoComplete={"new-password"} /> Remember me{' '}
             </label>
+          </div>
+          <div className={this.state.error != '' ? 'alert alert-danger error-alert' : ''}>
+            {this.state.error}
           </div>
           <button className="btn btn-lg btn-primary btn-block" type="button" onClick={this.handleClickLogin}>
             Log in
