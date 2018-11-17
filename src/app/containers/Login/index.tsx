@@ -17,7 +17,7 @@ export namespace Login {
 @connect(
   (state: RootState): Pick<Login.Props, 'error' | 'messages'> => {
     return {
-      error: '',
+      error: state.user.error,
       messages: state.intl.messages
     };
   },
