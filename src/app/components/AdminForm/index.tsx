@@ -10,11 +10,14 @@ export namespace AdminForm {
     addCategory: any;
     fetchProducts: any;
     addProduct: any;
+    error: string;
   }
 
   export interface State {
     current: string;
     isProductsFetched: boolean;
+    showError: boolean;
+    error: string;
   }
 }
 
@@ -23,8 +26,16 @@ export class AdminForm extends React.Component<AdminForm.Props, AdminForm.State>
     super(props);
     this.state = {
       current: 'category',
-      isProductsFetched: false
+      isProductsFetched: false,
+      showError: false,
+      error: ''
     };
+  }
+
+  componentWillReceiveProps(nextProps: AdminForm.Props) {
+    if (nextProps.error != '' && this.state.error != nextProps.error) {
+      this.setState({error: nextProps.error, showError: true});
+    }
   }
 
   handleClick = (current: string) => {
@@ -35,8 +46,12 @@ export class AdminForm extends React.Component<AdminForm.Props, AdminForm.State>
     }
   };
 
+  handleCloseClick = () => {
+    this.setState({showError: false});
+  };
+
   render() {
-    const { current } = this.state;
+    const { current, showError, error } = this.state;
     const { categories, products } = this.props;
     return (
       <div id="wrapper" className="d-flex">
@@ -63,6 +78,11 @@ export class AdminForm extends React.Component<AdminForm.Props, AdminForm.State>
               categories={categories}
             />
           </div>
+        </div>
+
+        <div className={"myAlert-top alert alert-danger " + (showError ? "" : "d-none")}>
+          <a href="#" className="close" data-dismiss="alert" aria-label="close" onClick={this.handleCloseClick}>&times;</a>
+          <strong>Error!</strong> {error}
         </div>
       </div>
     );

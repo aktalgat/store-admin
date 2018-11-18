@@ -22,15 +22,17 @@ export namespace Admin {
     checkToken: any;
     fetchProducts: any;
     addProduct: any;
+    error: string;
   }
 }
 
 @connect(
-  (state: RootState): Pick<Admin.Props, 'categories' | 'user' | 'products'> => {
+  (state: RootState): Pick<Admin.Props, 'categories' | 'user' | 'products' | 'error'> => {
     return {
       categories: state.categories.categories,
       user: state.user,
-      products: state.products.products
+      products: state.products.products,
+      error: state.categories.error
     };
   },
   (dispatch: Dispatch): Pick<Admin.Props, 'fetchCategories' | 'addCategory' | 'checkToken' | 'fetchProducts' |
@@ -61,14 +63,16 @@ export class Admin extends React.Component<Admin.Props, Admin.State> {
   }
 
   render() {
+    const { categories, products, addCategory, fetchProducts, addProduct, error} = this.props;
     if (!this.state.isExpired) {
       return (
         <AdminForm
-          categories={this.props.categories}
-          addCategory={this.props.addCategory}
-          products={this.props.products}
-          fetchProducts={this.props.fetchProducts}
-          addProduct={this.props.addProduct}
+          categories={categories}
+          addCategory={addCategory}
+          products={products}
+          fetchProducts={fetchProducts}
+          addProduct={addProduct}
+          error={error}
         />
       );
     } else {
