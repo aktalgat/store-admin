@@ -25,7 +25,7 @@ const fetchWrap = (path: any, props = postProps, query: string = '', data: any =
       return response.json();
     })
     .then((json: any) => {
-      if (response.ok && response.status == 200 && json.status !== 'ERROR') {
+      if (response.ok && response.status == 200) {
         return { response: json };
       } else {
         return { error: json.message || json };
