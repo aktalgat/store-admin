@@ -32,7 +32,7 @@ export namespace Admin {
       categories: state.categories.categories,
       user: state.user,
       products: state.products.products,
-      error: state.categories.error
+      error: state.categories.error + state.products.error
     };
   },
   (dispatch: Dispatch): Pick<Admin.Props, 'fetchCategories' | 'addCategory' | 'checkToken' | 'fetchProducts' |
