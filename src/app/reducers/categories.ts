@@ -17,7 +17,11 @@ export const categoriesReducer = handleActions<RootState.CategoriesState, any>(
       return { ...state, categories: action.payload, isFetching: false };
     },
     [CategoriesActions.Type.RECEIVE_FAIL_CATEGORIES]: (state, action) => {
-      return { ...state, isFetching: false };
+      return { ...state, isFetching: false, error: action.payload };
+    },
+
+    [CategoriesActions.Type.ADD_CATEGORY_FAIL]: (state, action) => {
+      return {...state, error: action.payload};
     }
   },
   initialState
