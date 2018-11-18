@@ -16,10 +16,10 @@ export namespace ProductsActions {
   export const fetchProducts = createAction(Type.FETCH_PRODUCTS, (data: any) => data);
   export const requestProducts = createAction(Type.REQUEST_PRODUCTS);
   export const receiveProducts = createAction(Type.RECEIVE_PRODUCTS, (payments: any) => payments);
-  export const receiveProductsFail = createAction(Type.RECEIVE_FAIL_PRODUCTS, (error: any) => 'Fetch products. ' + error);
+  export const receiveProductsFail = createAction(Type.RECEIVE_FAIL_PRODUCTS, (error: any) => 'Fetch products. ' + error + '. ');
 
   export const addProduct = createAction(Type.ADD_PRODUCT, (data: any) => data);
   export const addProductRequest = createAction(Type.ADD_PRODUCT_REQUEST, (params: any) => params);
   export const addProductDone = createAction(Type.ADD_PRODUCT_DONE, (data: any) => data);
-  export const addProductFail = createAction(Type.ADD_PRODUCT_FAIL, (error: any) => 'Add product. ' + error);
+  export const addProductFail = createAction(Type.ADD_PRODUCT_FAIL, (error: any) => 'Add product. ' + error + '. ');
 }
