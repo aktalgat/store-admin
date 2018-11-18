@@ -12,8 +12,6 @@ export namespace CategoryForm {
   export interface State {
     name: string;
     modal: boolean;
-    showError: boolean;
-    error: string;
   }
 }
 
@@ -22,9 +20,7 @@ export class CategoryForm extends React.Component<CategoryForm.Props, CategoryFo
     super(props);
     this.state = {
       name: '',
-      modal: false,
-      showError: false,
-      error: ''
+      modal: false
     };
   }
 
@@ -56,7 +52,6 @@ export class CategoryForm extends React.Component<CategoryForm.Props, CategoryFo
   };
 
   render() {
-    const { showError, error } = this.state;
     return (
       <div>
         <div className="col-md-8">
@@ -89,11 +84,6 @@ export class CategoryForm extends React.Component<CategoryForm.Props, CategoryFo
             <Button color="secondary" onClick={this.toggle}>Отмена</Button>
           </ModalFooter>
         </Modal>
-
-        <div className={"myAlert-top alert alert-danger " + (showError ? "" : "d-none")}>
-          <a href="#" className="close" data-dismiss="alert" aria-label="close">&times;</a>
-          <strong>Error!</strong> {error}
-        </div>
       </div>
     );
   }
