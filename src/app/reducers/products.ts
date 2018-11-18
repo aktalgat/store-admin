@@ -11,7 +11,7 @@ const initialState: RootState.ProductsState = {
 export const productsReducer = handleActions<RootState.ProductsState, any>(
   {
     [ProductsActions.Type.REQUEST_PRODUCTS]: (state, action) => {
-      return { ...state, isFetching: true };
+      return { ...state, isFetching: true, error: '' };
     },
     [ProductsActions.Type.RECEIVE_PRODUCTS]: (state, action) => {
       return { ...state, products: action.payload, isFetching: false };
@@ -20,8 +20,11 @@ export const productsReducer = handleActions<RootState.ProductsState, any>(
       return { ...state, isFetching: false, error: action.payload };
     },
 
+    [ProductsActions.Type.ADD_PRODUCT]: (state, action) => {
+      return { ...state, error: '' };
+    },
     [ProductsActions.Type.ADD_PRODUCT_FAIL]: (state, action) => {
-      return {...state, error: action.payload}
+      return { ...state, error: action.payload };
     }
   },
   initialState

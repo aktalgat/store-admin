@@ -11,7 +11,7 @@ const initialState: RootState.CategoriesState = {
 export const categoriesReducer = handleActions<RootState.CategoriesState, any>(
   {
     [CategoriesActions.Type.REQUEST_CATEGORIES]: (state, action) => {
-      return { ...state, isFetching: true };
+      return { ...state, isFetching: true, error: '' };
     },
     [CategoriesActions.Type.RECEIVE_CATEGORIES]: (state, action) => {
       return { ...state, categories: action.payload, isFetching: false };
@@ -20,8 +20,11 @@ export const categoriesReducer = handleActions<RootState.CategoriesState, any>(
       return { ...state, isFetching: false, error: action.payload };
     },
 
+    [CategoriesActions.Type.ADD_CATEGORY]: (state, action) => {
+      return { ...state, error: '' };
+    },
     [CategoriesActions.Type.ADD_CATEGORY_FAIL]: (state, action) => {
-      return {...state, error: action.payload};
+      return { ...state, error: action.payload };
     }
   },
   initialState
