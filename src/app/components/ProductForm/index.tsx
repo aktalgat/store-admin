@@ -95,7 +95,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
 
   getImgList = (imageUrls: ProductImageModel[]) => {
     return imageUrls.map((item) => {
-      return <img key={item.id} src={item.url} />;
+      return <img key={item.id} src={item.url} width={100} height={100} />;
     });
   };
 
