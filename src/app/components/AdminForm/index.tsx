@@ -82,14 +82,12 @@ export class AdminForm extends React.Component<AdminForm.Props, AdminForm.State>
             <div className="tab-content content-wrapper">
               <div
                 className={'tab-pane fade' + (current == 'category' ? ' show active' : '')}
-                id="v-pills-home"
                 role="tabpanel"
                 aria-labelledby="v-pills-home-tab">
                 <CategoryForm categories={categories} addCategory={this.props.addCategory} />
               </div>
               <div
                 className={'tab-pane fade' + (current == 'product' ? ' show active' : '')}
-                id="v-pills-profile"
                 role="tabpanel"
                 aria-labelledby="v-pills-profile-tab">
                 <ProductForm
