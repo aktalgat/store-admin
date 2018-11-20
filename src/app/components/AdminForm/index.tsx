@@ -34,7 +34,7 @@ export class AdminForm extends React.Component<AdminForm.Props, AdminForm.State>
 
   componentWillReceiveProps(nextProps: AdminForm.Props) {
     if (nextProps.error != '' && this.state.error != nextProps.error) {
-      this.setState({error: nextProps.error, showError: true});
+      this.setState({ error: nextProps.error, showError: true });
     }
   }
 
@@ -47,7 +47,7 @@ export class AdminForm extends React.Component<AdminForm.Props, AdminForm.State>
   };
 
   handleCloseClick = () => {
-    this.setState({showError: false});
+    this.setState({ showError: false });
   };
 
   render() {
@@ -55,33 +55,59 @@ export class AdminForm extends React.Component<AdminForm.Props, AdminForm.State>
     const { categories, products } = this.props;
     return (
       <div id="wrapper" className="d-flex">
-        <ul className="sidebar navbar-nav">
-          <li className="nav-item">
-            <span className="nav-span-item" onClick={() => this.handleClick('category')}>
-              Категории
-            </span>
-          </li>
-          <li className="nav-item">
-            <span className="nav-span-item" onClick={() => this.handleClick('product')}>
-              Товары
-            </span>
-          </li>
-        </ul>
-        <div id="content-wrapper">
-          <div className={current == 'category' ? '' : 'd-none'}>
-            <CategoryForm categories={categories} addCategory={this.props.addCategory} />
+        <div className="row main-row">
+          <div className="col-3">
+            <div className="nav flex-column nav-pills sidebar">
+              <span
+                className={'nav-link nav-span-item' + (current == 'category' ? ' active' : '')}
+                data-toggle="pill"
+                role="tab"
+                aria-controls="v-pills-home"
+                aria-selected="true"
+                onClick={() => this.handleClick('category')}>
+                Категории
+              </span>
+              <span
+                className={'nav-link nav-span-item' + (current == 'product' ? ' active' : '')}
+                data-toggle="pill"
+                role="tab"
+                aria-controls="v-pills-profile"
+                aria-selected="false"
+                onClick={() => this.handleClick('product')}>
+                Товары
+              </span>
+            </div>
           </div>
-          <div className={current == 'product' ? '' : 'd-none'}>
-            <ProductForm
-              products={products}
-              addProduct={this.props.addProduct}
-              categories={categories}
-            />
+          <div className="col-9">
+            <div className="tab-content content-wrapper">
+              <div
+                className={'tab-pane fade' + (current == 'category' ? ' show active' : '')}
+                id="v-pills-home"
+                role="tabpanel"
+                aria-labelledby="v-pills-home-tab">
+                <CategoryForm categories={categories} addCategory={this.props.addCategory} />
+              </div>
+              <div
+                className={'tab-pane fade' + (current == 'product' ? ' show active' : '')}
+                id="v-pills-profile"
+                role="tabpanel"
+                aria-labelledby="v-pills-profile-tab">
+                <ProductForm
+                  products={products}
+                  addProduct={this.props.addProduct}
+                  categories={categories} />
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className={"myAlert-top alert alert-danger " + (showError ? "" : "d-none")}>
-          <a href="#" className="close" data-dismiss="alert" aria-label="close" onClick={this.handleCloseClick}>&times;</a>
+        <div className={'myAlert-top alert alert-danger ' + (showError ? '' : 'd-none')}>
+          <a
+            href="#"
+            className="close"
+            data-dismiss="alert"
+            aria-label="close"
+            onClick={this.handleCloseClick}>&times;</a>
           <strong>Error!</strong> {error}
         </div>
       </div>
