@@ -1,4 +1,4 @@
-#wrapper #content-wrapper {
+#wrapper {
   overflow-x: hidden;
   width: 100%;
   padding-top: 1rem;
@@ -6,9 +6,6 @@
 }
 
 .nav-span-item {
-  padding: 1rem;
-  margin: 0;
-  display: block;
   cursor: pointer;
 }
 
@@ -21,4 +18,17 @@
   top: 20px;
   right: 20px;
   width: 350px;
+}
+
+.main-row {
+  width: 100%;
+}
+
+.sidebar {
+  padding: 1rem;
+  width: 90%;
+}
+
+.content-wrapper {
+  padding-top: 1rem;
 }
