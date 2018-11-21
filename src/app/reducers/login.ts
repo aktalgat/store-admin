@@ -31,7 +31,7 @@ export const loginReducer = handleActions<RootState.UserState, any>(
       return { ...state, ...resp.state };
     },
     [LoginActions.Type.CHECK_TOKEN_FAIL]: (state, action) => {
-      return { ...state, error: action.payload };
+      return { ...state, error: action.payload, isExpired: true };
     }
   },
   initialState
