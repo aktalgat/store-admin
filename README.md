@@ -1,9 +1,8 @@
-# Store React App with Redux and TypeScript
-Store React App with Redux, TypeScript, webpack 
+# Store admin React App with Redux and TypeScript
+Store admin React App with Redux, TypeScript, webpack 
 
 ## Description
-Web-client for Store project. It allows to choose product and proceed to checkout. Also contains admin tools 
-for managing categories and products.
+Web-client for Store admin project. It's admin tool for Store project. It allows manage categories and products.
 
 ## Setup & Run
 
