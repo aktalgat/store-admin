@@ -11,11 +11,11 @@ export function* login(data: any) {
     if (response) {
       let token: any = jwt(response.accessToken);
       let isAdmin = api.login.isAdmin(token.roles);
-      yield put(LoginActions.loginDone(response, data.payload));
       if (isAdmin) {
-        yield put(push('/admin'));
-      } else {
+        yield put(LoginActions.loginDone(response, data.payload));
         yield put(push('/'));
+      } else {
+        yield put(LoginActions.loginFail('You are not admin'));
       }
     } else {
       yield put(LoginActions.loginFail(error));
@@ -51,9 +51,15 @@ export function* checkToken(data: any) {
   try {
     let token = yield call(api.login.getToken);
     if (token && token != '') {
-      yield put(LoginActions.checkTokenDone(token));
+      let tokenObj: any = jwt(token);
+      let isAdmin = api.login.isAdmin(tokenObj.roles);
+      if (isAdmin) {
+        yield put(LoginActions.checkTokenDone(token));
+      } else {
+        yield put(LoginActions.checkTokenFail('You are not admin'));
+      }
     } else {
-      yield put(LoginActions.checkTokenFail({ error: 'No token' }));
+      yield put(LoginActions.checkTokenFail('No token'));
     }
   } catch (e) {
     yield put(LoginActions.checkTokenFail(e));
