@@ -11,7 +11,7 @@ export class Home extends React.Component<Home.Props> {
     return (
       <div>
         <Header />
-        <div>Hello home</div>
+        <div></div>
       </div>
     );
   }
