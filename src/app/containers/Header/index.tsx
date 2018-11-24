@@ -9,7 +9,6 @@ export namespace Header {
   }
 }
 
-
 export class Header extends React.Component<Header.Props> {
   render() {
     const headerProps = this.props as HeaderBar.Props;

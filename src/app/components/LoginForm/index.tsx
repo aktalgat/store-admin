@@ -33,7 +33,7 @@ export class LoginForm extends React.Component<LoginForm.Props, LoginForm.State>
 
   componentWillReceiveProps(nextProps: LoginForm.Props) {
     if (this.state.error != nextProps.error) {
-      this.setState({error: nextProps.error});
+      this.setState({ error: nextProps.error });
     }
   }
 
@@ -83,7 +83,8 @@ export class LoginForm extends React.Component<LoginForm.Props, LoginForm.State>
             placeholder="Email address"
             required
             autoFocus
-            onChange={this.handleLoginChange} />
+            onChange={this.handleLoginChange}
+          />
           <label htmlFor="inputPassword" className="sr-only">
             Password
           </label>
@@ -94,17 +95,27 @@ export class LoginForm extends React.Component<LoginForm.Props, LoginForm.State>
             placeholder="Password"
             required
             onChange={this.handlePasswordChange}
-            onKeyPress={this.handlePasswordKeyPress} />
+            onKeyPress={this.handlePasswordKeyPress}
+          />
           <div className="checkbox">
             <label>
-              <input type="checkbox" defaultChecked={false} onChange={this.handleRememberChange}
-                     autoComplete={"new-password"} /> Remember me{' '}
+              <input
+                type="checkbox"
+                defaultChecked={false}
+                onChange={this.handleRememberChange}
+                autoComplete={'new-password'}
+              />{' '}
+              Remember me{' '}
             </label>
           </div>
           <div className={this.state.error != '' ? 'alert alert-danger error-alert' : ''}>
             {this.state.error}
           </div>
-          <button className="btn btn-lg btn-primary btn-block" type="button" onClick={this.handleClickLogin}>
+          <button
+            className="btn btn-lg btn-primary btn-block"
+            type="button"
+            onClick={this.handleClickLogin}
+          >
             Log in
           </button>
           <p className="mt-5 mb-3 text-muted">&copy; 2017-2018</p>

@@ -63,7 +63,7 @@ export class Admin extends React.Component<Admin.Props, Admin.State> {
   }
 
   render() {
-    const { categories, products, addCategory, fetchProducts, addProduct, error} = this.props;
+    const { categories, products, addCategory, fetchProducts, addProduct, error } = this.props;
     if (!this.state.isExpired) {
       return (
         <AdminForm

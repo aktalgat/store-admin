@@ -101,7 +101,11 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
 
   getCategoryList = () => {
     return this.props.categories.map((item) => {
-      return <option key={item.id} value={item.id}>{item.name}</option>
+      return (
+        <option key={item.id} value={item.id}>
+          {item.name}
+        </option>
+      );
     });
   };
 
@@ -186,14 +190,23 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
           <tbody>{this.getList()}</tbody>
         </table>
 
-        <div><button className="btn btn-primary" onClick={this.toggle}>Новый товар</button></div>
+        <div>
+          <button className="btn btn-primary" onClick={this.toggle}>
+            Новый товар
+          </button>
+        </div>
         <Modal isOpen={this.state.modal} toggle={this.toggle} size="lg">
           <ModalHeader toggle={this.toggle}>Товар</ModalHeader>
           <ModalBody>
             <form>
               <div className="form-group">
                 <label htmlFor="productName">Наименование</label>
-                <input type="text" className="form-control" id="productName" onChange={this.handleNameChange} />
+                <input
+                  type="text"
+                  className="form-control"
+                  id="productName"
+                  onChange={this.handleNameChange}
+                />
               </div>
               <div className="form-group">
                 <label htmlFor="category">Категория</label>
@@ -203,31 +216,62 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
               </div>
               <div className="form-group">
                 <label htmlFor="productDesc">Описание</label>
-                <textarea className="form-control" id="productDesc" onChange={this.handleDescriptionChange} />
+                <textarea
+                  className="form-control"
+                  id="productDesc"
+                  onChange={this.handleDescriptionChange}
+                />
               </div>
               <div className="form-group">
                 <label htmlFor="productShortDesc">Краткое описание</label>
-                <textarea className="form-control" id="productShortDesc" onChange={this.handleShortDescriptionChange} />
+                <textarea
+                  className="form-control"
+                  id="productShortDesc"
+                  onChange={this.handleShortDescriptionChange}
+                />
               </div>
               <div className="form-group">
                 <label htmlFor="productAddInfo">Дополнительная информация</label>
-                <textarea className="form-control" id="productAddInfo" onChange={this.handleAddInfoChange} />
+                <textarea
+                  className="form-control"
+                  id="productAddInfo"
+                  onChange={this.handleAddInfoChange}
+                />
               </div>
               <div className="form-group">
                 <label htmlFor="productBadge">Значок</label>
-                <input type="text" className="form-control" id="productBadge" onChange={this.handleBadgeChange}/>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="productBadge"
+                  onChange={this.handleBadgeChange}
+                />
               </div>
               <div className="form-group">
                 <label htmlFor="productPrice">Цена</label>
-                <input type="text" className="form-control" id="productPrice" onChange={this.handlePriceChange} />
+                <input
+                  type="text"
+                  className="form-control"
+                  id="productPrice"
+                  onChange={this.handlePriceChange}
+                />
               </div>
               <div className="form-group">
                 <label htmlFor="productOldPrice">Старая цена</label>
-                <input type="text" className="form-control" id="productOldPrice" onChange={this.handlePriceOldChange} />
+                <input
+                  type="text"
+                  className="form-control"
+                  id="productOldPrice"
+                  onChange={this.handlePriceOldChange}
+                />
               </div>
               <div className="form-group">
                 <label htmlFor="productStars">Звезды</label>
-                <select className="form-control" id="productStars" onChange={this.handleStarsChange}>
+                <select
+                  className="form-control"
+                  id="productStars"
+                  onChange={this.handleStarsChange}
+                >
                   <option>1</option>
                   <option>2</option>
                   <option>3</option>
@@ -237,13 +281,28 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
               </div>
               <div className="form-group">
                 <label htmlFor="productImages">Изображения</label>
-                <input type="text" className="form-control" id="productImages" onChange={this.handleImageListChange} />
+                <input
+                  type="text"
+                  className="form-control"
+                  id="productImages"
+                  onChange={this.handleImageListChange}
+                />
               </div>
             </form>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={() => {this.toggle(); this.handleAddProduct();}}>Добавить</Button>{' '}
-            <Button color="secondary" onClick={this.toggle}>Отмена</Button>
+            <Button
+              color="primary"
+              onClick={() => {
+                this.toggle();
+                this.handleAddProduct();
+              }}
+            >
+              Добавить
+            </Button>{' '}
+            <Button color="secondary" onClick={this.toggle}>
+              Отмена
+            </Button>
           </ModalFooter>
         </Modal>
       </div>
