@@ -2,7 +2,8 @@
 Store admin React App with Redux, TypeScript, webpack 
 
 ## Description
-Web-client for Store admin project. It's admin tool for Store project. It allows manage categories and products.
+Web-client for Store admin project. It's admin tool for Store project. It allows to manage categories and products.
+Also allows to generate static html pages for Store.
 
 ## Setup & Run
 
