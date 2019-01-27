@@ -1,5 +1,5 @@
 # Store admin React App with Redux and TypeScript
-Store admin React App with Redux, TypeScript, webpack 
+Store admin React App with Redux, TypeScript, webpack and Bootstrap 4
 
 ## Description
 Web-client for Store admin project. It's admin tool for Store project. It allows to manage categories and products.
