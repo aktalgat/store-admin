@@ -35,7 +35,7 @@
     "dotenv": "^6.1.0",
     "file-loader": "^1.1.11",
     "html-loader": "^1.0.0-alpha.0",
-    "html-webpack-plugin": "^4.0.0-alpha",
+    "html-webpack-plugin": "^4.0.0-beta.5",
     "isomorphic-fetch": "^2.2.1",
     "mini-css-extract-plugin": "^0.4.2",
     "node-sass": "^4.9.3",
