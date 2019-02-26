@@ -1,7 +1,7 @@
 import api from '../api/index';
 import { call, fork, put, takeEvery } from 'redux-saga/effects';
 import { push } from 'react-router-redux';
-import { LoginActions } from 'app/actions/index';
+import { LoginActions } from 'app/actions';
 import * as jwt from 'jwt-decode';
 
 export function* login(data: any) {
