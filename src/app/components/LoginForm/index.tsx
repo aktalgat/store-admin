@@ -80,14 +80,11 @@ export class LoginForm extends React.Component<LoginForm.Props, LoginForm.State>
             type="text"
             id="inputEmail"
             className="form-control"
-            placeholder="Email address"
+            placeholder="Phone number"
             required
             autoFocus
-            onChange={this.handleLoginChange}
-          />
-          <label htmlFor="inputPassword" className="sr-only">
-            Password
-          </label>
+            onChange={this.handleLoginChange}/>
+          <label htmlFor="inputPassword" className="sr-only">Password</label>
           <input
             type="password"
             id="inputPassword"
@@ -95,8 +92,7 @@ export class LoginForm extends React.Component<LoginForm.Props, LoginForm.State>
             placeholder="Password"
             required
             onChange={this.handlePasswordChange}
-            onKeyPress={this.handlePasswordKeyPress}
-          />
+            onKeyPress={this.handlePasswordKeyPress} />
           <div className="checkbox">
             <label>
               <input
@@ -114,10 +110,7 @@ export class LoginForm extends React.Component<LoginForm.Props, LoginForm.State>
           <button
             className="btn btn-lg btn-primary btn-block"
             type="button"
-            onClick={this.handleClickLogin}
-          >
-            Log in
-          </button>
+            onClick={this.handleClickLogin}>Log in</button>
           <p className="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
         </form>
       </div>
