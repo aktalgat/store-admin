@@ -3,8 +3,9 @@ export const AVAILABLE_LANGUAGE = require('app/translations/available.json');
 
 const en = require('app/translations/en.json');
 const ru = require('app/translations/ru.json');
+const ky = require('app/translations/ky.json');
 
-const localeData: { en: any; ru: any } = { en: en, ru: ru };
+const localeData: { en: any; ru: any; ky: any } = { en: en, ru: ru, ky: ky };
 
 const getLangCode = (language: string) => {
   return language.toLocaleLowerCase().split(/[_-]+/)[0];
