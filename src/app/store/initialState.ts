@@ -3,7 +3,8 @@ import api from '../api';
 
 const enLocaleData = require('react-intl/locale-data/en');
 const ruLocaleData = require('react-intl/locale-data/ru');
-addLocaleData([...enLocaleData, ...ruLocaleData]);
+const kyLocaleData = require('react-intl/locale-data/ky');
+addLocaleData([...enLocaleData, ...ruLocaleData, ...kyLocaleData]);
 
 function getProp(obj: any, prop: string) {
   return obj[prop];
