@@ -52,7 +52,7 @@ export class CategoryForm extends React.Component<CategoryForm.Props, CategoryFo
   };
 
   render() {
-    const emptyList = this.getList().length == 0 ? <tr><td colSpan={3}>No records</td></tr> : '';
+    const emptyList = this.getList().length == 0 ? <tr><td colSpan={3} align="center">No records</td></tr> : '';
     return (
       <div>
         <div className="col-md-8">
