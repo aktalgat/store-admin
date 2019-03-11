@@ -169,6 +169,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
   };
 
   render() {
+    const emptyList = this.getList().length == 0 ? <tr><td colSpan={11} align="center">No records</td></tr> : '';
     return (
       <div>
         <table className="table table-bordered">
@@ -187,7 +188,10 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
               <th>Изображения</th>
             </tr>
           </thead>
-          <tbody>{this.getList()}</tbody>
+          <tbody>
+            {this.getList()}
+            {emptyList}
+          </tbody>
         </table>
 
         <div>
