@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 export namespace HeaderBar {
   export interface Methods {
     updateIntl: any;
+    logout: any;
   }
 
   export interface Fields {
@@ -15,6 +16,7 @@ export namespace HeaderBar {
 }
 
 export class HeaderBar extends React.Component<HeaderBar.Props> {
+
   handleLangClick = (locale: any) => {
     this.props.updateIntl({
       locale: locale,
@@ -22,9 +24,12 @@ export class HeaderBar extends React.Component<HeaderBar.Props> {
     });
   };
 
+  handleLogout = () => {
+    this.props.logout();
+  };
+
   render() {
     const { currentLocale, locales } = this.props;
-    console.log(locales)
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <Link to="/" className="navbar-brand">
@@ -32,13 +37,15 @@ export class HeaderBar extends React.Component<HeaderBar.Props> {
         </Link>
         <div className="nav navbar-nav ml-auto">
           {Object.keys(locales).map((locale) => (
-            <button
+            <button type="button"
               key={locale}
               className={'btn btn-sm ' + (currentLocale == locale ? 'btn-primary' : 'btn-outline-secondary')}
               onClick={() => this.handleLangClick(locale)}>
               {locales[locale].lang}
             </button>
           ))}
+          &nbsp;
+          <button type="button" className="btn btn-sm btn-outline-secondary" onClick={this.handleLogout}>Logout</button>
         </div>
       </nav>
     );
