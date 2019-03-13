@@ -43,7 +43,9 @@ export namespace Admin {
 export class Admin extends React.Component<Admin.Props> {
   componentWillMount() {
     this.props.checkToken();
-    this.props.fetchCategories();
+    if (!this.props.user.isExpired) {
+      this.props.fetchCategories();
+    }
   }
 
   render() {
