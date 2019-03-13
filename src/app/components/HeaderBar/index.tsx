@@ -10,6 +10,7 @@ export namespace HeaderBar {
   export interface Fields {
     currentLocale: any;
     locales: any;
+    isExpired: boolean;
   }
 
   export interface Props extends Methods, Fields {}
