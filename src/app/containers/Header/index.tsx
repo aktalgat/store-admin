@@ -32,7 +32,7 @@ export namespace Header {
 )
 export class Header extends React.Component<Header.Props> {
   render() {
-    const isExpired = this.props.user && this.props.user.isExpired ? this.props.user.isExpired : true;
+    const isExpired = this.props.user ? this.props.user.isExpired : true;
     const headerFields = this.props as HeaderBar.Props;
     return (
       <header>
