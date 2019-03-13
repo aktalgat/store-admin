@@ -5,12 +5,9 @@ import {RootState} from "app/reducers";
 import {bindActionCreators, Dispatch} from "redux";
 import {updateIntl} from "react-intl-redux";
 import {UserModel} from "app/models";
+import {LoginActions} from "app/actions";
 
 export namespace Header {
-  export interface State {
-    isExpired: boolean;
-  }
-
   export interface Props {
     user?: UserModel;
     currentLocale?: any;
@@ -30,28 +27,16 @@ export namespace Header {
   },
   (dispatch: Dispatch): Pick<Header.Props, 'updateIntl' | 'logout'> => ({
     updateIntl: bindActionCreators(updateIntl, dispatch),
-    logout: bindActionCreators(updateIntl, dispatch)
+    logout: bindActionCreators(LoginActions.logout, dispatch)
   })
 )
-export class Header extends React.Component<Header.Props, Header.State> {
-  constructor(props: Header.Props) {
-    super(props);
-    this.state = {
-      isExpired: false
-    };
-  }
-
-  componentWillReceiveProps(nextProps: Header.Props) {
-    if (nextProps && nextProps.user) {
-      this.setState({isExpired: nextProps.user.isExpired});
-    }
-  }
-
+export class Header extends React.Component<Header.Props> {
   render() {
+    const isExpired = this.props.user && this.props.user.isExpired ? this.props.user.isExpired : true;
     const headerFields = this.props as HeaderBar.Props;
     return (
       <header>
-        <HeaderBar {...headerFields} isExpired={this.state.isExpired} />
+        <HeaderBar {...headerFields} isExpired={isExpired} />
       </header>
     );
   }

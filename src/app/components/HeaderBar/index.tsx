@@ -17,7 +17,6 @@ export namespace HeaderBar {
 }
 
 export class HeaderBar extends React.Component<HeaderBar.Props> {
-
   handleLangClick = (locale: any) => {
     this.props.updateIntl({
       locale: locale,
@@ -31,6 +30,9 @@ export class HeaderBar extends React.Component<HeaderBar.Props> {
 
   render() {
     const { currentLocale, locales } = this.props;
+    const logoutButton = !this.props.isExpired ?
+      <button type="button" className="btn btn-sm btn-outline-secondary" onClick={this.handleLogout}>Logout</button>
+      : '';
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <Link to="/" className="navbar-brand">
@@ -46,7 +48,7 @@ export class HeaderBar extends React.Component<HeaderBar.Props> {
             </button>
           ))}
           &nbsp;
-          <button type="button" className="btn btn-sm btn-outline-secondary" onClick={this.handleLogout}>Logout</button>
+          {logoutButton}
         </div>
       </nav>
     );
