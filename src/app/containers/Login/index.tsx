@@ -13,6 +13,7 @@ export namespace Login {
     error: string;
     auth: any;
     user: UserModel;
+    checkToken: any;
   }
 }
 
@@ -24,11 +25,16 @@ export namespace Login {
       user: state.user
     };
   },
-  (dispatch: Dispatch): Pick<Login.Props, 'auth'> => ({
-    auth: bindActionCreators(LoginActions.login, dispatch)
+  (dispatch: Dispatch): Pick<Login.Props, 'auth' | 'checkToken'> => ({
+    auth: bindActionCreators(LoginActions.login, dispatch),
+    checkToken: bindActionCreators(LoginActions.checkToken, dispatch)
   })
 )
 export class Login extends React.Component<Login.Props> {
+  componentWillMount() {
+    this.props.checkToken();
+  }
+
   render() {
     const { auth } = this.props;
     const loginProps = this.props as LoginForm.Fields;
