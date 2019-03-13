@@ -8,10 +8,6 @@ import { bindActionCreators, Dispatch } from 'redux';
 import { CategoriesActions, LoginActions, ProductsActions } from 'app/actions';
 
 export namespace Admin {
-  export interface State {
-    isExpired: boolean;
-  }
-
   export interface Props extends RouteComponentProps<void> {
     categories: CategoryModel[];
     user: UserModel;
@@ -44,27 +40,15 @@ export namespace Admin {
     addProduct: bindActionCreators(ProductsActions.addProduct, dispatch)
   })
 )
-export class Admin extends React.Component<Admin.Props, Admin.State> {
-  constructor(props: Admin.Props) {
-    super(props);
-    this.state = {
-      isExpired: false
-    };
-  }
-
+export class Admin extends React.Component<Admin.Props> {
   componentWillMount() {
     this.props.checkToken();
     this.props.fetchCategories();
   }
 
-  componentWillReceiveProps(nextProps: Admin.Props) {
-    console.log('next props: {}', nextProps);
-    this.setState({ isExpired: nextProps.user.isExpired });
-  }
-
   render() {
     const { categories, products, addCategory, fetchProducts, addProduct, error } = this.props;
-    if (!this.state.isExpired) {
+    if (!this.props.user.isExpired) {
       return (
         <AdminForm
           categories={categories}
