@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { HeaderBar } from 'app/components';
-import {connect} from "react-redux";
-import {RootState} from "app/reducers";
-import {bindActionCreators, Dispatch} from "redux";
-import {updateIntl} from "react-intl-redux";
-import {UserModel} from "app/models";
-import {LoginActions} from "app/actions";
+import { connect } from 'react-redux';
+import { RootState } from 'app/reducers';
+import { bindActionCreators, Dispatch } from 'redux';
+import { updateIntl } from 'react-intl-redux';
+import { UserModel } from 'app/models';
+import { LoginActions } from 'app/actions';
 
 export namespace Header {
   export interface Props {

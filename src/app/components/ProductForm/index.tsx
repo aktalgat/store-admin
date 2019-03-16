@@ -209,8 +209,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
                   type="text"
                   className="form-control"
                   id="productName"
-                  onChange={this.handleNameChange}
-                />
+                  onChange={this.handleNameChange}/>
               </div>
               <div className="form-group">
                 <label htmlFor="category">Категория</label>
@@ -223,24 +222,21 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
                 <textarea
                   className="form-control"
                   id="productDesc"
-                  onChange={this.handleDescriptionChange}
-                />
+                  onChange={this.handleDescriptionChange}/>
               </div>
               <div className="form-group">
                 <label htmlFor="productShortDesc">Краткое описание</label>
                 <textarea
                   className="form-control"
                   id="productShortDesc"
-                  onChange={this.handleShortDescriptionChange}
-                />
+                  onChange={this.handleShortDescriptionChange}/>
               </div>
               <div className="form-group">
                 <label htmlFor="productAddInfo">Дополнительная информация</label>
                 <textarea
                   className="form-control"
                   id="productAddInfo"
-                  onChange={this.handleAddInfoChange}
-                />
+                  onChange={this.handleAddInfoChange}/>
               </div>
               <div className="form-group">
                 <label htmlFor="productBadge">Значок</label>
@@ -248,8 +244,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
                   type="text"
                   className="form-control"
                   id="productBadge"
-                  onChange={this.handleBadgeChange}
-                />
+                  onChange={this.handleBadgeChange}/>
               </div>
               <div className="form-group">
                 <label htmlFor="productPrice">Цена</label>
@@ -257,8 +252,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
                   type="text"
                   className="form-control"
                   id="productPrice"
-                  onChange={this.handlePriceChange}
-                />
+                  onChange={this.handlePriceChange}/>
               </div>
               <div className="form-group">
                 <label htmlFor="productOldPrice">Старая цена</label>
@@ -266,16 +260,14 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
                   type="text"
                   className="form-control"
                   id="productOldPrice"
-                  onChange={this.handlePriceOldChange}
-                />
+                  onChange={this.handlePriceOldChange}/>
               </div>
               <div className="form-group">
                 <label htmlFor="productStars">Звезды</label>
                 <select
                   className="form-control"
                   id="productStars"
-                  onChange={this.handleStarsChange}
-                >
+                  onChange={this.handleStarsChange}>
                   <option>1</option>
                   <option>2</option>
                   <option>3</option>
@@ -289,8 +281,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
                   type="text"
                   className="form-control"
                   id="productImages"
-                  onChange={this.handleImageListChange}
-                />
+                  onChange={this.handleImageListChange}/>
               </div>
             </form>
           </ModalBody>
@@ -300,13 +291,8 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
               onClick={() => {
                 this.toggle();
                 this.handleAddProduct();
-              }}
-            >
-              Добавить
-            </Button>{' '}
-            <Button color="secondary" onClick={this.toggle}>
-              Отмена
-            </Button>
+              }}>Добавить</Button>{' '}
+            <Button color="secondary" onClick={this.toggle}>Отмена</Button>
           </ModalFooter>
         </Modal>
       </div>

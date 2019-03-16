@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Route, RouteComponentProps, Switch } from 'react-router';
-import {Admin, Header, Login} from 'app/containers';
+import { Admin, Header, Login } from 'app/containers';
 import { NotFound } from 'app/components';
 
 export namespace App {
