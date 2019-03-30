@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { FormattedMessage } from 'react-intl';
 
 export namespace LoginForm {
   export interface Methods {
@@ -68,28 +69,27 @@ export class LoginForm extends React.Component<LoginForm.Props, LoginForm.State>
   };
 
   render() {
+    const { messages } = this.props;
     return (
       <div className="login-div">
         <form className="form-login">
           <img className="mb-4" src="" alt="" width="72" height="72" />
-          <h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
-          <label htmlFor="inputEmail" className="sr-only">
-            Email address
-          </label>
+          <h1 className="h3 mb-3 font-weight-normal">
+            <FormattedMessage id="logIn" defaultMessage="Log in" />
+          </h1>
           <input
             type="text"
             id="inputEmail"
             className="form-control"
-            placeholder="Phone number"
+            placeholder={messages['phoneNumber']}
             required
             autoFocus
             onChange={this.handleLoginChange}/>
-          <label htmlFor="inputPassword" className="sr-only">Password</label>
           <input
             type="password"
             id="inputPassword"
             className="form-control"
-            placeholder="Password"
+            placeholder={messages['password']}
             required
             onChange={this.handlePasswordChange}
             onKeyPress={this.handlePasswordKeyPress} />
@@ -99,9 +99,7 @@ export class LoginForm extends React.Component<LoginForm.Props, LoginForm.State>
                 type="checkbox"
                 defaultChecked={false}
                 onChange={this.handleRememberChange}
-                autoComplete={'new-password'}
-              />{' '}
-              Remember me{' '}
+                autoComplete={'new-password'}/>{' '}<FormattedMessage id="rememberMe" defaultMessage="Remember me" />{' '}
             </label>
           </div>
           <div className={this.state.error != '' ? 'alert alert-danger error-alert' : ''}>
@@ -110,8 +108,8 @@ export class LoginForm extends React.Component<LoginForm.Props, LoginForm.State>
           <button
             className="btn btn-lg btn-primary btn-block"
             type="button"
-            onClick={this.handleClickLogin}>Log in</button>
-          <p className="mt-5 mb-3 text-muted">&copy; 2017-2018</p>
+            onClick={this.handleClickLogin}><FormattedMessage id="logIn" defaultMessage="Log in" /></button>
+          <p className="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
         </form>
       </div>
     );
