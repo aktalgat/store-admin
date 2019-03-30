@@ -1,4 +1,8 @@
 {
   "name": "English",
-  "lang": "ENG"
+  "lang": "ENG",
+  "logIn": "Log in",
+  "phoneNumber": "Phone number",
+  "password": "Password",
+  "rememberMe": "Remember me"
 }
