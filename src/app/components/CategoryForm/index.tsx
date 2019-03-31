@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { FormattedMessage } from 'react-intl';
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 import { CategoryModel } from 'app/models';
 
@@ -52,15 +53,17 @@ export class CategoryForm extends React.Component<CategoryForm.Props, CategoryFo
   };
 
   render() {
-    const emptyList = this.getList().length == 0 ? <tr><td colSpan={3} align="center">No records</td></tr> : '';
+    const emptyList = this.getList().length == 0 ? <tr><td colSpan={3} align="center">
+      <FormattedMessage id="noRecords" defaultMessage="No records" /></td></tr> : '';
+
     return (
       <div>
         <div className="col-md-8">
           <table className="table table-bordered">
             <thead>
               <tr className="text-center">
-                <th>№ п/п</th>
-                <th>Наименование</th>
+                <th><FormattedMessage id="itemNumber" defaultMessage="#" /></th>
+                <th><FormattedMessage id="nomination" defaultMessage="Name" /></th>
               </tr>
             </thead>
             <tbody>
@@ -69,21 +72,29 @@ export class CategoryForm extends React.Component<CategoryForm.Props, CategoryFo
             </tbody>
           </table>
         </div>
-        <div><button className="btn btn-primary" onClick={this.toggle}>Новая категория</button></div>
+        <div><button className="btn btn-primary" onClick={this.toggle}>
+          <FormattedMessage id="newCategory" defaultMessage="New category" />
+        </button></div>
 
         <Modal isOpen={this.state.modal} toggle={this.toggle} size="lg">
-          <ModalHeader toggle={this.toggle}>Товар</ModalHeader>
+          <ModalHeader toggle={this.toggle}>
+            <FormattedMessage id="category" defaultMessage="Category" />
+          </ModalHeader>
           <ModalBody>
             <form>
               <div className="form-group">
-                <label htmlFor="categoryName">Наименование</label>
+                <label htmlFor="categoryName"><FormattedMessage id="nomination" defaultMessage="Name" /></label>
                 <input type="text" className="form-control" id="categoryName" onChange={this.handleNameChange} />
               </div>
             </form>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={() => {this.toggle(); this.handleAddClick()}}>Добавить</Button>{' '}
-            <Button color="secondary" onClick={this.toggle}>Отмена</Button>
+            <Button color="primary" onClick={() => {this.toggle(); this.handleAddClick()}}>
+              <FormattedMessage id="add" defaultMessage="Add" />
+            </Button>{' '}
+            <Button color="secondary" onClick={this.toggle}>
+              <FormattedMessage id="cancel" defaultMessage="Cancel" />
+            </Button>
           </ModalFooter>
         </Modal>
       </div>
