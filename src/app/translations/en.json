@@ -13,5 +13,6 @@
   "newCategory": "New category",
   "category": "Category",
   "add": "Add",
-  "cancel": "Cancel"
+  "cancel": "Cancel",
+  "logout": "Log out"
 }
