@@ -1,10 +1,17 @@
 {
-  "name": "Кыргызча",
+  "langName": "Кыргызча",
   "lang": "КЫР",
   "logIn": "Кируу",
   "phoneNumber": "Телефон номери",
   "password": "Сыр соз",
   "rememberMe": "Мени эстеп кал",
   "categories": "Категориялар",
-  "products": "Товарлар"
+  "products": "Товарлар",
+  "itemNumber": "№",
+  "nomination": "Аталышы",
+  "noRecords": "Жазуулар жок",
+  "newCategory": "Жаны категория",
+  "category": "Категория",
+  "add": "Кошуу",
+  "cancel": "Кайтуу"
 }

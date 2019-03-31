@@ -1,10 +1,17 @@
 {
-  "name": "English",
+  "langName": "English",
   "lang": "ENG",
   "logIn": "Log in",
   "phoneNumber": "Phone number",
   "password": "Password",
   "rememberMe": "Remember me",
   "categories": "Categories",
-  "products": "Products"
+  "products": "Products",
+  "itemNumber": "#",
+  "nomination": "Name",
+  "noRecords": "No records",
+  "newCategory": "New category",
+  "category": "Category",
+  "add": "Add",
+  "cancel": "Cancel"
 }

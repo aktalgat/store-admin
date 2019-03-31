@@ -1,10 +1,17 @@
 {
-  "name": "Русский",
+  "langName": "Русский",
   "lang": "РУС",
   "logIn": "Вход",
   "phoneNumber": "Номер телефона",
   "password": "Пароль",
   "rememberMe": "Запомнить меня",
   "categories": "Категории",
-  "products": "Товары"
+  "products": "Товары",
+  "itemNumber": "№",
+  "nomination": "Наименование",
+  "noRecords": "Нет записей",
+  "newCategory": "Новая категория",
+  "category": "Категория",
+  "add": "Добавить",
+  "cancel": "Отмена"
 }
