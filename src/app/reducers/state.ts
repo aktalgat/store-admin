@@ -1,4 +1,4 @@
-import { RouterState } from 'react-router-redux';
+import { RouterState } from 'connected-react-router';
 import { CategoriesModel, UserModel, ProductsModel } from 'app/models';
 
 export interface RootState {
