@@ -4,5 +4,7 @@
   "logIn": "Log in",
   "phoneNumber": "Phone number",
   "password": "Password",
-  "rememberMe": "Remember me"
+  "rememberMe": "Remember me",
+  "categories": "Categories",
+  "products": "Products"
 }
