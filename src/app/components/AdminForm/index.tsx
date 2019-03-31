@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { CategoryForm, ProductForm } from 'app/components';
 import { CategoryModel, ProductModel } from 'app/models';
+import { FormattedMessage } from 'react-intl';
 
 export namespace AdminForm {
   export interface Props {
@@ -65,7 +66,7 @@ export class AdminForm extends React.Component<AdminForm.Props, AdminForm.State>
                 aria-controls="v-pills-home"
                 aria-selected="true"
                 onClick={() => this.handleClick('category')}>
-                Категории
+                <FormattedMessage id="categories" defaultMessage="Categories" />
               </span>
               <span
                 className={'nav-link nav-span-item' + (current == 'product' ? ' active' : '')}
@@ -74,7 +75,7 @@ export class AdminForm extends React.Component<AdminForm.Props, AdminForm.State>
                 aria-controls="v-pills-profile"
                 aria-selected="false"
                 onClick={() => this.handleClick('product')}>
-                Товары
+                <FormattedMessage id="products" defaultMessage="Products" />
               </span>
             </div>
           </div>
