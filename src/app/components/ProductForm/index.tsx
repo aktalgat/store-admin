@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'reactstrap';
 import { CategoryModel, ProductImageModel, ProductModel } from 'app/models';
+import {FormattedMessage} from "react-intl";
 
 export namespace ProductForm {
   export interface Props {
@@ -169,23 +170,25 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
   };
 
   render() {
-    const emptyList = this.getList().length == 0 ? <tr><td colSpan={11} align="center">No records</td></tr> : '';
+    const emptyList = this.getList().length == 0 ? <tr><td colSpan={11} align="center">
+      <FormattedMessage id="noRecords" defaultMessage="No records" /></td></tr> : '';
+
     return (
       <div>
         <table className="table table-bordered">
           <thead>
             <tr className="text-center">
-              <th>№ п/п</th>
-              <th>Наименование</th>
-              <th>Категория</th>
-              <th>Описание</th>
-              <th>Краткое описание</th>
-              <th>Дополнительная информация</th>
-              <th>Значок</th>
-              <th>Цена</th>
-              <th>Старая цена</th>
-              <th>Звезды</th>
-              <th>Изображения</th>
+              <th><FormattedMessage id="itemNumber" defaultMessage="#" /></th>
+              <th><FormattedMessage id="nomination" defaultMessage="Name" /></th>
+              <th><FormattedMessage id="category" defaultMessage="Category" /></th>
+              <th><FormattedMessage id="description" defaultMessage="Description" /></th>
+              <th><FormattedMessage id="shortDescription" defaultMessage="Short description" /></th>
+              <th><FormattedMessage id="extraInfo" defaultMessage="Extra information" /></th>
+              <th><FormattedMessage id="badge" defaultMessage="Badge" /></th>
+              <th><FormattedMessage id="price" defaultMessage="Price" /></th>
+              <th><FormattedMessage id="oldPrice" defaultMessage="Old price" /></th>
+              <th><FormattedMessage id="stars" defaultMessage="Stars" /></th>
+              <th><FormattedMessage id="images" defaultMessage="Images" /></th>
             </tr>
           </thead>
           <tbody>
@@ -196,15 +199,15 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
 
         <div>
           <button className="btn btn-primary" onClick={this.toggle}>
-            Новый товар
+            <FormattedMessage id="newProduct" defaultMessage="New product" />
           </button>
         </div>
         <Modal isOpen={this.state.modal} toggle={this.toggle} size="lg">
-          <ModalHeader toggle={this.toggle}>Товар</ModalHeader>
+          <ModalHeader toggle={this.toggle}><FormattedMessage id="product" defaultMessage="Product" /></ModalHeader>
           <ModalBody>
             <form>
               <div className="form-group">
-                <label htmlFor="productName">Наименование</label>
+                <label htmlFor="productName"><FormattedMessage id="nomination" defaultMessage="Name" /></label>
                 <input
                   type="text"
                   className="form-control"
@@ -212,34 +215,38 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
                   onChange={this.handleNameChange}/>
               </div>
               <div className="form-group">
-                <label htmlFor="category">Категория</label>
+                <label htmlFor="category"><FormattedMessage id="category" defaultMessage="Category" /></label>
                 <select className="form-control" id="category" onChange={this.handleCategoryChange}>
                   {this.getCategoryList()}
                 </select>
               </div>
               <div className="form-group">
-                <label htmlFor="productDesc">Описание</label>
+                <label htmlFor="productDesc"><FormattedMessage id="description" defaultMessage="Description" /></label>
                 <textarea
                   className="form-control"
                   id="productDesc"
                   onChange={this.handleDescriptionChange}/>
               </div>
               <div className="form-group">
-                <label htmlFor="productShortDesc">Краткое описание</label>
+                <label htmlFor="productShortDesc">
+                  <FormattedMessage id="shortDescription" defaultMessage="Short description" />
+                </label>
                 <textarea
                   className="form-control"
                   id="productShortDesc"
                   onChange={this.handleShortDescriptionChange}/>
               </div>
               <div className="form-group">
-                <label htmlFor="productAddInfo">Дополнительная информация</label>
+                <label htmlFor="productAddInfo">
+                  <FormattedMessage id="extraInfo" defaultMessage="Extra information" />
+                </label>
                 <textarea
                   className="form-control"
                   id="productAddInfo"
                   onChange={this.handleAddInfoChange}/>
               </div>
               <div className="form-group">
-                <label htmlFor="productBadge">Значок</label>
+                <label htmlFor="productBadge"><FormattedMessage id="badge" defaultMessage="Badge" /></label>
                 <input
                   type="text"
                   className="form-control"
@@ -247,7 +254,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
                   onChange={this.handleBadgeChange}/>
               </div>
               <div className="form-group">
-                <label htmlFor="productPrice">Цена</label>
+                <label htmlFor="productPrice"><FormattedMessage id="price" defaultMessage="Price" /></label>
                 <input
                   type="text"
                   className="form-control"
@@ -255,7 +262,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
                   onChange={this.handlePriceChange}/>
               </div>
               <div className="form-group">
-                <label htmlFor="productOldPrice">Старая цена</label>
+                <label htmlFor="productOldPrice"><FormattedMessage id="oldPrice" defaultMessage="Old price" /></label>
                 <input
                   type="text"
                   className="form-control"
@@ -263,7 +270,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
                   onChange={this.handlePriceOldChange}/>
               </div>
               <div className="form-group">
-                <label htmlFor="productStars">Звезды</label>
+                <label htmlFor="productStars"><FormattedMessage id="stars" defaultMessage="Stars" /></label>
                 <select
                   className="form-control"
                   id="productStars"
@@ -276,7 +283,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
                 </select>
               </div>
               <div className="form-group">
-                <label htmlFor="productImages">Изображения</label>
+                <label htmlFor="productImages"><FormattedMessage id="images" defaultMessage="Images" /></label>
                 <input
                   type="text"
                   className="form-control"
@@ -286,13 +293,16 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
             </form>
           </ModalBody>
           <ModalFooter>
-            <Button
-              color="primary"
+            <Button color="primary"
               onClick={() => {
                 this.toggle();
                 this.handleAddProduct();
-              }}>Добавить</Button>{' '}
-            <Button color="secondary" onClick={this.toggle}>Отмена</Button>
+              }}>
+              <FormattedMessage id="add" defaultMessage="Add" />
+            </Button>{' '}
+            <Button color="secondary" onClick={this.toggle}>
+              <FormattedMessage id="cancel" defaultMessage="Cancel" />
+            </Button>
           </ModalFooter>
         </Modal>
       </div>
