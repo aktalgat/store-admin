@@ -14,5 +14,6 @@
   "category": "Category",
   "add": "Add",
   "cancel": "Cancel",
-  "logout": "Log out"
+  "logout": "Log out",
+  "pageNotFound": "Page not found"
 }
