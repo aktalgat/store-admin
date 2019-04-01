@@ -15,5 +15,15 @@
   "add": "Кошуу",
   "cancel": "Кайтуу",
   "logout": "Чыгуу",
-  "pageNotFound": "Баракча табылган жок"
+  "pageNotFound": "Баракча табылган жок",
+  "description": "Маалымат",
+  "shortDescription": "Кыска маалымат",
+  "extraInfo": "Кошумча маалымат",
+  "badge": "Белги",
+  "price": "Баасы",
+  "oldPrice": "Эски баасы",
+  "stars": "Жылдыздары",
+  "images": "Суроттору",
+  "product": "Товар",
+  "newProduct": "Жаны товар"
 }

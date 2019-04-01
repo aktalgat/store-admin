@@ -15,5 +15,15 @@
   "add": "Добавить",
   "cancel": "Отмена",
   "logout": "Выйти",
-  "pageNotFound": "Страница не найдена"
+  "pageNotFound": "Страница не найдена",
+  "description": "Описание",
+  "shortDescription": "Краткое описание",
+  "extraInfo": "Дополнительная информация",
+  "badge": "Значок",
+  "price": "Цена",
+  "oldPrice": "Старая цена",
+  "stars": "Звездв",
+  "images": "Изображения",
+  "product": "Товар",
+  "newProduct": "Новый товар"
 }

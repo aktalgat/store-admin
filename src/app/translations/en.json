@@ -15,5 +15,15 @@
   "add": "Add",
   "cancel": "Cancel",
   "logout": "Log out",
-  "pageNotFound": "Page not found"
+  "pageNotFound": "Page not found",
+  "description": "Description",
+  "shortDescription": "Short description",
+  "extraInfo": "Extra information",
+  "badge": "Badge",
+  "price": "Price",
+  "oldPrice": "Old price",
+  "stars": "Stars",
+  "images": "Images",
+  "product": "Product",
+  "newProduct": "New product"
 }
