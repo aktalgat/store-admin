@@ -54,7 +54,7 @@ export class CategoryForm extends React.Component<CategoryForm.Props, CategoryFo
 
   render() {
     const emptyList = this.getList().length == 0 ? <tr><td colSpan={3} align="center">
-      <FormattedMessage id="noRecords" defaultMessage="No records" /></td></tr> : '';
+      <FormattedMessage id="noRecords" defaultMessage="No records" /></td></tr> : null;
 
     return (
       <div>

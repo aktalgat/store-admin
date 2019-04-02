@@ -171,7 +171,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
 
   render() {
     const emptyList = this.getList().length == 0 ? <tr><td colSpan={11} align="center">
-      <FormattedMessage id="noRecords" defaultMessage="No records" /></td></tr> : '';
+      <FormattedMessage id="noRecords" defaultMessage="No records" /></td></tr> : null;
 
     return (
       <div>
