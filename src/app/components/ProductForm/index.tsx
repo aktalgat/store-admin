@@ -24,6 +24,7 @@ export namespace ProductForm {
     priceOld: number;
     stars: number;
     productImageList: string[];
+    imageUrl: string;
   }
 }
 
@@ -41,7 +42,8 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
       price: 0,
       priceOld: 0,
       stars: 1,
-      productImageList: []
+      productImageList: [],
+      imageUrl: ''
     };
   }
 
@@ -68,7 +70,8 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
       price: 0,
       priceOld: 0,
       stars: 1,
-      productImageList: []
+      productImageList: [],
+      imageUrl: ''
     });
   };
 
@@ -97,6 +100,12 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
   getImgList = (imageUrls: ProductImageModel[]) => {
     return imageUrls.map((item) => {
       return <img key={item.id} src={item.url} width={100} height={100} />;
+    });
+  };
+
+  getImgListString = (imageUrls: string[]) => {
+    return imageUrls.map((item, index) => {
+      return <img key={index} src={item} width={100} height={100} />;
     });
   };
 
@@ -163,10 +172,14 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
     this.setState({ stars: +e.target.value });
   };
 
-  handleImageListChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  handleImageUrlChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    this.setState({ imageUrl: e.target.value });
+  };
+
+  handleImageAddMore = () => {
     let list = this.state.productImageList;
-    list.push(e.target.value);
-    this.setState({ productImageList: list });
+    list.push(this.state.imageUrl);
+    this.setState({ productImageList: list, imageUrl: '' });
   };
 
   render() {
@@ -288,7 +301,16 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
                   type="text"
                   className="form-control"
                   id="productImages"
-                  onChange={this.handleImageListChange}/>
+                  value={this.state.imageUrl}
+                  onChange={this.handleImageUrlChange}/>
+              </div>
+              <div className="form-group">
+                <Button color="primary" type="button" onClick={this.handleImageAddMore}>
+                  <FormattedMessage id="addMore" defaultMessage="Add more" />
+                </Button>
+              </div>
+              <div>
+                {this.getImgListString(this.state.productImageList)}
               </div>
             </form>
           </ModalBody>
