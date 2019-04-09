@@ -91,7 +91,9 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
           <td>{item.priceOld}</td>
           <td>{item.stars}</td>
           <td>{this.getImgList(item.productImageList)}</td>
-          <td><i className="fas fa-pen"></i></td>
+          <td><div className="action-div">
+            <span><i className="fas fa-pen"/></span>
+            <span><i className="fas fa-trash"/></span></div></td>
         </tr>
       );
     });
@@ -184,7 +186,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
   };
 
   render() {
-    const emptyList = this.getList().length == 0 ? <tr><td colSpan={11} align="center">
+    const emptyList = this.getList().length == 0 ? <tr><td colSpan={12} align="center">
       <FormattedMessage id="noRecords" defaultMessage="No records" /></td></tr> : null;
 
     return (
