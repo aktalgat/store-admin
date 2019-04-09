@@ -14,6 +14,7 @@ export namespace ProductForm {
   export interface State {
     modal: boolean;
 
+    productId: number;
     categoryId: number;
     name: string;
     description: string;
@@ -32,6 +33,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
   constructor(props: ProductForm.Props) {
     super(props);
     this.state = {
+      productId: 0,
       modal: false,
       categoryId: 0,
       name: '',
@@ -67,6 +69,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
     console.log('product: {}', product);
 
     this.setState({
+      productId: product.id ? product.id : 0,
       categoryId: product.categoryId,
       name: product.name,
       description: product.description,
@@ -84,6 +87,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
 
   clearState = () => {
     this.setState({
+      productId: 0,
       categoryId: this.props.categories[0].id,
       name: '',
       description: '',
@@ -147,6 +151,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
 
   handleAddProduct = () => {
     let product = {
+      id: this.state.productId,
       name: this.state.name,
       categoryId: this.state.categoryId,
       description: this.state.description,
@@ -158,7 +163,11 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
       stars: this.state.stars,
       productImageList: this.state.productImageList
     };
-    this.props.addProduct(product);
+    if (this.state.productId == 0) {
+      this.props.addProduct(product);
+    } else {
+
+    }
     this.clearState();
   };
 
