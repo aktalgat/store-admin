@@ -63,6 +63,25 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
     });
   };
 
+  handleEditClick = (product: ProductModel) => {
+    console.log('product: {}', product);
+
+    this.setState({
+      categoryId: product.categoryId,
+      name: product.name,
+      description: product.description,
+      shortDescription: product.shortDescription,
+      additionalInfo: product.additionalInfo,
+      badge: product.badge,
+      price: product.price,
+      priceOld: product.priceOld,
+      stars: product.stars,
+      productImageList: product.productImageList.map(item => item.url),
+      imageUrl: '',
+      modal: true
+    });
+  };
+
   clearState = () => {
     this.setState({
       categoryId: this.props.categories[0].id,
@@ -96,7 +115,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
           <td>{item.stars}</td>
           <td>{this.getImgList(item.productImageList)}</td>
           <td><div className="action-div">
-            <span><i className="fas fa-pen"/></span>
+            <span onClick={() => {this.handleEditClick(item)}}><i className="fas fa-pen"/></span>
             <span><i className="fas fa-trash"/></span></div></td>
         </tr>
       );
@@ -229,45 +248,54 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
             <form>
               <div className="form-group">
                 <label htmlFor="productName"><FormattedMessage id="nomination" defaultMessage="Name" /></label>
-                <input type="text" className="form-control" id="productName" onChange={this.handleNameChange}/>
+                <input type="text" className="form-control" id="productName" defaultValue={this.state.name}
+                       onChange={this.handleNameChange}/>
               </div>
               <div className="form-group">
                 <label htmlFor="category"><FormattedMessage id="category" defaultMessage="Category" /></label>
-                <select className="form-control" id="category" onChange={this.handleCategoryChange}>
+                <select className="form-control" id="category" defaultValue={this.state.categoryId.toString()}
+                        onChange={this.handleCategoryChange}>
                   {this.getCategoryList()}
                 </select>
               </div>
               <div className="form-group">
                 <label htmlFor="productDesc"><FormattedMessage id="description" defaultMessage="Description" /></label>
-                <textarea className="form-control" id="productDesc" onChange={this.handleDescriptionChange}/>
+                <textarea className="form-control" id="productDesc" defaultValue={this.state.description}
+                          onChange={this.handleDescriptionChange}/>
               </div>
               <div className="form-group">
                 <label htmlFor="productShortDesc">
                   <FormattedMessage id="shortDescription" defaultMessage="Short description" />
                 </label>
-                <textarea className="form-control" id="productShortDesc" onChange={this.handleShortDescriptionChange}/>
+                <textarea className="form-control" id="productShortDesc" defaultValue={this.state.shortDescription}
+                          onChange={this.handleShortDescriptionChange}/>
               </div>
               <div className="form-group">
                 <label htmlFor="productAddInfo">
                   <FormattedMessage id="extraInfo" defaultMessage="Extra information" />
                 </label>
-                <textarea className="form-control" id="productAddInfo" onChange={this.handleAddInfoChange}/>
+                <textarea className="form-control" id="productAddInfo" defaultValue={this.state.additionalInfo}
+                          onChange={this.handleAddInfoChange}/>
               </div>
               <div className="form-group">
                 <label htmlFor="productBadge"><FormattedMessage id="badge" defaultMessage="Badge" /></label>
-                <input type="text" className="form-control" id="productBadge" onChange={this.handleBadgeChange}/>
+                <input type="text" className="form-control" id="productBadge" defaultValue={this.state.badge}
+                       onChange={this.handleBadgeChange}/>
               </div>
               <div className="form-group">
                 <label htmlFor="productPrice"><FormattedMessage id="price" defaultMessage="Price" /></label>
-                <input type="text" className="form-control" id="productPrice" onChange={this.handlePriceChange}/>
+                <input type="text" className="form-control" id="productPrice" defaultValue={this.state.price.toString()}
+                       onChange={this.handlePriceChange}/>
               </div>
               <div className="form-group">
                 <label htmlFor="productOldPrice"><FormattedMessage id="oldPrice" defaultMessage="Old price" /></label>
-                <input type="text" className="form-control" id="productOldPrice" onChange={this.handlePriceOldChange}/>
+                <input type="text" className="form-control" id="productOldPrice" defaultValue={this.state.priceOld.toString()}
+                       onChange={this.handlePriceOldChange}/>
               </div>
               <div className="form-group">
                 <label htmlFor="productStars"><FormattedMessage id="stars" defaultMessage="Stars" /></label>
-                <select className="form-control" id="productStars" onChange={this.handleStarsChange}>
+                <select className="form-control" id="productStars" defaultValue={this.state.stars.toString()}
+                        onChange={this.handleStarsChange}>
                   <option>1</option>
                   <option>2</option>
                   <option>3</option>
