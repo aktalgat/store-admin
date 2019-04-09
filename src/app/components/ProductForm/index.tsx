@@ -54,6 +54,10 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
   }
 
   toggle = () => {
+    if (!this.state.modal) {
+      this.clearState();
+    }
+
     this.setState({
       modal: !this.state.modal
     });
@@ -278,7 +282,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
               </div>
               <div className="form-group">
                 <Button color="primary" type="button" onClick={this.handleImageAddMore}>
-                  <FormattedMessage id="addMore" defaultMessage="Add more" />
+                  <FormattedMessage id="add" defaultMessage="Add" />
                 </Button>
               </div>
               <div>
