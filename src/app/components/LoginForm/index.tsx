@@ -77,38 +77,21 @@ export class LoginForm extends React.Component<LoginForm.Props, LoginForm.State>
           <h1 className="h3 mb-3 font-weight-normal">
             <FormattedMessage id="logIn" defaultMessage="Log in" />
           </h1>
-          <input
-            type="text"
-            id="inputEmail"
-            className="form-control"
-            placeholder={messages['phoneNumber']}
-            required
-            autoFocus
-            onChange={this.handleLoginChange}/>
-          <input
-            type="password"
-            id="inputPassword"
-            className="form-control"
-            placeholder={messages['password']}
-            required
-            onChange={this.handlePasswordChange}
-            onKeyPress={this.handlePasswordKeyPress} />
+          <input type="text" id="inputEmail" className="form-control" placeholder={messages['phoneNumber']}
+                 required autoFocus onChange={this.handleLoginChange}/>
+          <input type="password" id="inputPassword" className="form-control" placeholder={messages['password']}
+                 required onChange={this.handlePasswordChange} onKeyPress={this.handlePasswordKeyPress} />
           <div className="checkbox">
             <label>
-              <input
-                type="checkbox"
-                defaultChecked={false}
-                onChange={this.handleRememberChange}
-                autoComplete={'new-password'}/>{' '}<FormattedMessage id="rememberMe" defaultMessage="Remember me" />{' '}
+              <input type="checkbox" defaultChecked={false} onChange={this.handleRememberChange}
+                     autoComplete={'new-password'}/>{' '}<FormattedMessage id="rememberMe" defaultMessage="Remember me" />{' '}
             </label>
           </div>
           <div className={this.state.error != '' ? 'alert alert-danger error-alert' : ''}>
             {this.state.error}
           </div>
-          <button
-            className="btn btn-lg btn-primary btn-block"
-            type="button"
-            onClick={this.handleClickLogin}><FormattedMessage id="logIn" defaultMessage="Log in" /></button>
+          <button className="btn btn-lg btn-primary btn-block" type="button"
+                  onClick={this.handleClickLogin}><FormattedMessage id="logIn" defaultMessage="Log in" /></button>
           <p className="mt-5 mb-3 text-muted">&copy; 2017-2019</p>
         </form>
       </div>

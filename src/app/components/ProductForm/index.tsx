@@ -91,6 +91,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
           <td>{item.priceOld}</td>
           <td>{item.stars}</td>
           <td>{this.getImgList(item.productImageList)}</td>
+          <td><i className="fas fa-pen"></i></td>
         </tr>
       );
     });
@@ -202,6 +203,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
               <th><FormattedMessage id="oldPrice" defaultMessage="Old price" /></th>
               <th><FormattedMessage id="stars" defaultMessage="Stars" /></th>
               <th><FormattedMessage id="images" defaultMessage="Images" /></th>
+              <th>&nbsp;</th>
             </tr>
           </thead>
           <tbody>
@@ -221,11 +223,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
             <form>
               <div className="form-group">
                 <label htmlFor="productName"><FormattedMessage id="nomination" defaultMessage="Name" /></label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="productName"
-                  onChange={this.handleNameChange}/>
+                <input type="text" className="form-control" id="productName" onChange={this.handleNameChange}/>
               </div>
               <div className="form-group">
                 <label htmlFor="category"><FormattedMessage id="category" defaultMessage="Category" /></label>
@@ -235,59 +233,35 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
               </div>
               <div className="form-group">
                 <label htmlFor="productDesc"><FormattedMessage id="description" defaultMessage="Description" /></label>
-                <textarea
-                  className="form-control"
-                  id="productDesc"
-                  onChange={this.handleDescriptionChange}/>
+                <textarea className="form-control" id="productDesc" onChange={this.handleDescriptionChange}/>
               </div>
               <div className="form-group">
                 <label htmlFor="productShortDesc">
                   <FormattedMessage id="shortDescription" defaultMessage="Short description" />
                 </label>
-                <textarea
-                  className="form-control"
-                  id="productShortDesc"
-                  onChange={this.handleShortDescriptionChange}/>
+                <textarea className="form-control" id="productShortDesc" onChange={this.handleShortDescriptionChange}/>
               </div>
               <div className="form-group">
                 <label htmlFor="productAddInfo">
                   <FormattedMessage id="extraInfo" defaultMessage="Extra information" />
                 </label>
-                <textarea
-                  className="form-control"
-                  id="productAddInfo"
-                  onChange={this.handleAddInfoChange}/>
+                <textarea className="form-control" id="productAddInfo" onChange={this.handleAddInfoChange}/>
               </div>
               <div className="form-group">
                 <label htmlFor="productBadge"><FormattedMessage id="badge" defaultMessage="Badge" /></label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="productBadge"
-                  onChange={this.handleBadgeChange}/>
+                <input type="text" className="form-control" id="productBadge" onChange={this.handleBadgeChange}/>
               </div>
               <div className="form-group">
                 <label htmlFor="productPrice"><FormattedMessage id="price" defaultMessage="Price" /></label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="productPrice"
-                  onChange={this.handlePriceChange}/>
+                <input type="text" className="form-control" id="productPrice" onChange={this.handlePriceChange}/>
               </div>
               <div className="form-group">
                 <label htmlFor="productOldPrice"><FormattedMessage id="oldPrice" defaultMessage="Old price" /></label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="productOldPrice"
-                  onChange={this.handlePriceOldChange}/>
+                <input type="text" className="form-control" id="productOldPrice" onChange={this.handlePriceOldChange}/>
               </div>
               <div className="form-group">
                 <label htmlFor="productStars"><FormattedMessage id="stars" defaultMessage="Stars" /></label>
-                <select
-                  className="form-control"
-                  id="productStars"
-                  onChange={this.handleStarsChange}>
+                <select className="form-control" id="productStars" onChange={this.handleStarsChange}>
                   <option>1</option>
                   <option>2</option>
                   <option>3</option>
@@ -297,12 +271,8 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
               </div>
               <div className="form-group">
                 <label htmlFor="productImages"><FormattedMessage id="images" defaultMessage="Images" /></label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="productImages"
-                  value={this.state.imageUrl}
-                  onChange={this.handleImageUrlChange}/>
+                <input type="text" className="form-control" id="productImages" value={this.state.imageUrl}
+                       onChange={this.handleImageUrlChange}/>
               </div>
               <div className="form-group">
                 <Button color="primary" type="button" onClick={this.handleImageAddMore}>
@@ -315,11 +285,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
             </form>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary"
-              onClick={() => {
-                this.toggle();
-                this.handleAddProduct();
-              }}>
+            <Button color="primary" onClick={() => { this.toggle(); this.handleAddProduct(); } }>
               <FormattedMessage id="add" defaultMessage="Add" />
             </Button>{' '}
             <Button color="secondary" onClick={this.toggle}>

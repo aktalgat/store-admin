@@ -37,17 +37,12 @@ export class HeaderBar extends React.Component<HeaderBar.Props> {
       : '';
     return (
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <Link to="/" className="navbar-brand">
-          Store
-        </Link>
+        <Link to="/" className="navbar-brand">Store</Link>
         <div className="nav navbar-nav ml-auto">
           {Object.keys(locales).map((locale) => (
-            <button type="button"
-              key={locale}
+            <button type="button" key={locale}
               className={'btn btn-sm ' + (currentLocale == locale ? 'btn-primary' : 'btn-outline-secondary')}
-              onClick={() => this.handleLangClick(locale)}>
-              {locales[locale].lang}
-            </button>
+              onClick={() => this.handleLangClick(locale)}>{locales[locale].lang}</button>
           ))}
           &nbsp;
           {logoutButton}

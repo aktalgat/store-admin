@@ -59,54 +59,34 @@ export class AdminForm extends React.Component<AdminForm.Props, AdminForm.State>
         <div className="row main-row">
           <div className="col-3">
             <div className="nav flex-column nav-pills sidebar">
-              <span
-                className={'nav-link nav-span-item' + (current == 'category' ? ' active' : '')}
-                data-toggle="pill"
-                role="tab"
-                aria-controls="v-pills-home"
-                aria-selected="true"
-                onClick={() => this.handleClick('category')}>
+              <span className={'nav-link nav-span-item' + (current == 'category' ? ' active' : '')} data-toggle="pill"
+                    role="tab" aria-controls="v-pills-home" aria-selected="true"
+                    onClick={() => this.handleClick('category')}>
                 <FormattedMessage id="categories" defaultMessage="Categories" />
               </span>
-              <span
-                className={'nav-link nav-span-item' + (current == 'product' ? ' active' : '')}
-                data-toggle="pill"
-                role="tab"
-                aria-controls="v-pills-profile"
-                aria-selected="false"
-                onClick={() => this.handleClick('product')}>
+              <span className={'nav-link nav-span-item' + (current == 'product' ? ' active' : '')} data-toggle="pill"
+                    role="tab" aria-controls="v-pills-profile" aria-selected="false"
+                    onClick={() => this.handleClick('product')}>
                 <FormattedMessage id="products" defaultMessage="Products" />
               </span>
             </div>
           </div>
           <div className="col-9">
             <div className="tab-content content-wrapper">
-              <div
-                className={'tab-pane fade' + (current == 'category' ? ' show active' : '')}
-                role="tabpanel"
-                aria-labelledby="v-pills-home-tab">
+              <div className={'tab-pane fade' + (current == 'category' ? ' show active' : '')} role="tabpanel"
+                   aria-labelledby="v-pills-home-tab">
                 <CategoryForm categories={categories} addCategory={this.props.addCategory} />
               </div>
-              <div
-                className={'tab-pane fade' + (current == 'product' ? ' show active' : '')}
-                role="tabpanel"
-                aria-labelledby="v-pills-profile-tab">
-                <ProductForm
-                  products={products}
-                  addProduct={this.props.addProduct}
-                  categories={categories} />
+              <div className={'tab-pane fade' + (current == 'product' ? ' show active' : '')} role="tabpanel"
+                   aria-labelledby="v-pills-profile-tab">
+                <ProductForm products={products} addProduct={this.props.addProduct} categories={categories} />
               </div>
             </div>
           </div>
         </div>
 
         <div className={'myAlert-top alert alert-danger ' + (showError ? '' : 'd-none')}>
-          <a
-            href="#"
-            className="close"
-            data-dismiss="alert"
-            aria-label="close"
-            onClick={this.handleCloseClick}>&times;</a>
+          <span className="close" data-dismiss="alert" aria-label="close" onClick={this.handleCloseClick}>&times;</span>
           <strong>Error!</strong> {error}
         </div>
       </div>
