@@ -329,7 +329,8 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
           </ModalBody>
           <ModalFooter>
             <Button color="primary" onClick={() => { this.toggle(); this.handleAddProduct(); } }>
-              <FormattedMessage id="add" defaultMessage="Add" />
+              <FormattedMessage id={this.state.productId == 0 ? "add" : "edit"}
+                                defaultMessage={this.state.productId == 0 ? "Add" : "Edit"} />
             </Button>{' '}
             <Button color="secondary" onClick={this.toggle}>
               <FormattedMessage id="cancel" defaultMessage="Cancel" />
