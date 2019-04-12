@@ -18,6 +18,7 @@ export namespace Admin {
     checkToken: any;
     fetchProducts: any;
     addProduct: any;
+    editProduct: any;
     error: string;
   }
 }
@@ -32,12 +33,13 @@ export namespace Admin {
     };
   },
   (dispatch: Dispatch): Pick<Admin.Props, 'fetchCategories' | 'addCategory' | 'checkToken' | 'fetchProducts' |
-    'addProduct'> => ({
+    'addProduct' | 'editProduct'> => ({
     fetchCategories: bindActionCreators(CategoriesActions.fetchCategories, dispatch),
     addCategory: bindActionCreators(CategoriesActions.addCategory, dispatch),
     checkToken: bindActionCreators(LoginActions.checkToken, dispatch),
     fetchProducts: bindActionCreators(ProductsActions.fetchProducts, dispatch),
-    addProduct: bindActionCreators(ProductsActions.addProduct, dispatch)
+    addProduct: bindActionCreators(ProductsActions.addProduct, dispatch),
+    editProduct: bindActionCreators(ProductsActions.editProduct, dispatch)
   })
 )
 export class Admin extends React.Component<Admin.Props> {
