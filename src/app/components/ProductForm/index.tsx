@@ -9,6 +9,7 @@ export namespace ProductForm {
     categories: CategoryModel[];
 
     addProduct: any;
+    editProduct: any;
   }
 
   export interface State {
@@ -59,15 +60,12 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
     if (!this.state.modal) {
       this.clearState();
     }
-
     this.setState({
       modal: !this.state.modal
     });
   };
 
   handleEditClick = (product: ProductModel) => {
-    console.log('product: {}', product);
-
     this.setState({
       productId: product.id ? product.id : 0,
       categoryId: product.categoryId,
@@ -166,7 +164,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
     if (this.state.productId == 0) {
       this.props.addProduct(product);
     } else {
-
+      this.props.editProduct(product);
     }
     this.clearState();
   };
