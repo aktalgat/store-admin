@@ -51,11 +51,11 @@ export class Admin extends React.Component<Admin.Props> {
   }
 
   render() {
-    const { categories, products, addCategory, fetchProducts, addProduct, error } = this.props;
+    const { categories, products, addCategory, fetchProducts, addProduct, error, editProduct } = this.props;
     if (!this.props.user.isExpired) {
       return (
         <AdminForm categories={categories} addCategory={addCategory} products={products} fetchProducts={fetchProducts}
-                   addProduct={addProduct} error={error}/>
+                   addProduct={addProduct} error={error} editProduct={editProduct}/>
       );
     } else {
       return <Redirect to="/login" />;

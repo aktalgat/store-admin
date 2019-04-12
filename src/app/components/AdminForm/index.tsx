@@ -11,6 +11,7 @@ export namespace AdminForm {
     addCategory: any;
     fetchProducts: any;
     addProduct: any;
+    editProduct: any;
     error: string;
   }
 
