@@ -9,7 +9,7 @@ export namespace ProductForm {
     categories: CategoryModel[];
 
     addProduct: any;
-    editProduct: any;
+    updateProduct: any;
   }
 
   export interface State {
@@ -164,7 +164,7 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
     if (this.state.productId == 0) {
       this.props.addProduct(product);
     } else {
-      this.props.editProduct(product);
+      this.props.updateProduct(product);
     }
     this.clearState();
   };

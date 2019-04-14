@@ -18,7 +18,7 @@ export namespace Admin {
     checkToken: any;
     fetchProducts: any;
     addProduct: any;
-    editProduct: any;
+    updateProduct: any;
     error: string;
   }
 }
@@ -33,13 +33,13 @@ export namespace Admin {
     };
   },
   (dispatch: Dispatch): Pick<Admin.Props, 'fetchCategories' | 'addCategory' | 'checkToken' | 'fetchProducts' |
-    'addProduct' | 'editProduct'> => ({
+    'addProduct' | 'updateProduct'> => ({
     fetchCategories: bindActionCreators(CategoriesActions.fetchCategories, dispatch),
     addCategory: bindActionCreators(CategoriesActions.addCategory, dispatch),
     checkToken: bindActionCreators(LoginActions.checkToken, dispatch),
     fetchProducts: bindActionCreators(ProductsActions.fetchProducts, dispatch),
     addProduct: bindActionCreators(ProductsActions.addProduct, dispatch),
-    editProduct: bindActionCreators(ProductsActions.editProduct, dispatch)
+    updateProduct: bindActionCreators(ProductsActions.updateProduct, dispatch)
   })
 )
 export class Admin extends React.Component<Admin.Props> {
@@ -51,11 +51,11 @@ export class Admin extends React.Component<Admin.Props> {
   }
 
   render() {
-    const { categories, products, addCategory, fetchProducts, addProduct, error, editProduct } = this.props;
+    const { categories, products, addCategory, fetchProducts, addProduct, error, updateProduct } = this.props;
     if (!this.props.user.isExpired) {
       return (
         <AdminForm categories={categories} addCategory={addCategory} products={products} fetchProducts={fetchProducts}
-                   addProduct={addProduct} error={error} editProduct={editProduct}/>
+                   addProduct={addProduct} error={error} updateProduct={updateProduct}/>
       );
     } else {
       return <Redirect to="/login" />;

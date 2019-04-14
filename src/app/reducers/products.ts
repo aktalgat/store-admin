@@ -27,10 +27,10 @@ export const productsReducer = handleActions<RootState.ProductsState, any>(
       return { ...state, error: action.payload };
     },
 
-    [ProductsActions.Type.EDIT_PRODUCT]: (state, action) => {
+    [ProductsActions.Type.UPDATE_PRODUCT]: (state, action) => {
       return { ...state, error: '' };
     },
-    [ProductsActions.Type.EDIT_PRODUCT_FAIL]: (state, action) => {
+    [ProductsActions.Type.UPDATE_PRODUCT_FAIL]: (state, action) => {
       return { ...state, error: action.payload };
     }
   },
