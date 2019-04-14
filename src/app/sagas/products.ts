@@ -46,8 +46,36 @@ export function* watchPostProductDone() {
   yield takeEvery(ProductsActions.Type.ADD_PRODUCT_DONE, postProductDone);
 }
 
+export function* putProduct(data: any) {
+  yield put(ProductsActions.updateProductRequest(data));
+  try {
+    const { response, error } = yield call(api.products.put, data.payload);
+    if (response) {
+      yield put(ProductsActions.updateProductDone(response));
+    } else {
+      yield put(ProductsActions.updateProductFail(error));
+    }
+  } catch (e) {
+    yield put(ProductsActions.updateProductFail(e));
+  }
+}
+
+export function* watchPutProduct() {
+  yield takeEvery(ProductsActions.Type.UPDATE_PRODUCT, putProduct);
+}
+
+export function* putProductDone(data: any) {
+  yield put(ProductsActions.fetchProducts(data.payload));
+}
+
+export function* watchPutProductDone() {
+  yield takeEvery(ProductsActions.Type.UPDATE_PRODUCT_DONE, putProductDone);
+}
+
 export default function* root() {
   yield fork(watchProducts);
   yield fork(watchPostProduct);
   yield fork(watchPostProductDone);
+  yield fork(watchPutProduct);
+  yield fork(watchPutProductDone);
 }
