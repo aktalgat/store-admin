@@ -15,7 +15,12 @@ export namespace ProductsActions {
     UPDATE_PRODUCT = 'UPDATE_PRODUCT',
     UPDATE_PRODUCT_REQUEST = 'UPDATE_PRODUCT_REQUEST',
     UPDATE_PRODUCT_DONE = 'UPDATE_PRODUCT_DONE',
-    UPDATE_PRODUCT_FAIL = 'UPDATE_PRODUCT_FAIL'
+    UPDATE_PRODUCT_FAIL = 'UPDATE_PRODUCT_FAIL',
+
+    DELETE_PRODUCT = 'DELETE_PRODUCT',
+    DELETE_PRODUCT_REQUEST = 'DELETE_PRODUCT_REQUEST',
+    DELETE_PRODUCT_DONE = 'DELETE_PRODUCT_DONE',
+    DELETE_PRODUCT_FAIL = 'DELETE_PRODUCT_FAIL'
   }
 
   export const fetchProducts = createAction(Type.FETCH_PRODUCTS, (data: any) => data);
@@ -40,5 +45,13 @@ export namespace ProductsActions {
   export const updateProductFail = createAction(
     Type.UPDATE_PRODUCT_FAIL,
     (error: any) => 'Edit product. ' + error + '. '
+  );
+
+  export const deleteProduct = createAction(Type.DELETE_PRODUCT, (data: any) => data);
+  export const deleteProductRequest = createAction(Type.DELETE_PRODUCT_REQUEST, (params: any) => params);
+  export const deleteProductDone = createAction(Type.DELETE_PRODUCT_DONE, (data: any) => data);
+  export const deleteProductFail = createAction(
+    Type.DELETE_PRODUCT_FAIL,
+    (error: any) => 'Delete product. ' + error + '. '
   );
 }
