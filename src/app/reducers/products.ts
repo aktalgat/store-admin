@@ -32,6 +32,13 @@ export const productsReducer = handleActions<RootState.ProductsState, any>(
     },
     [ProductsActions.Type.UPDATE_PRODUCT_FAIL]: (state, action) => {
       return { ...state, error: action.payload };
+    },
+
+    [ProductsActions.Type.DELETE_PRODUCT]: (state, action) => {
+      return { ...state, error: '' };
+    },
+    [ProductsActions.Type.DELETE_PRODUCT_FAIL]: (state, action) => {
+      return { ...state, error: action.payload };
     }
   },
   initialState
