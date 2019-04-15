@@ -16,6 +16,11 @@ const putProps = {
   headers: { 'Content-Type': 'application/json', Authorization: '' }
 };
 
+const deleteProps = {
+  method: 'PUT',
+  headers: { 'Content-Type': 'application/json', Authorization: '' }
+};
+
 const fetchWrap = (path: any, props = postProps, query: string = '', data: any = null) => {
   const apiHost = process.env.API_URL || '/';
 
@@ -64,6 +69,16 @@ export const fetchPUT = (path: any, data: any, query: any = '') => {
     query = stringify(query);
   }
   let props = putProps;
+  let token = sessionStorage.getItem('token') || localStorage.getItem('token') || '';
+  props.headers.Authorization = 'Bearer ' + token;
+  return fetchWrap(path, props, query, data);
+};
+
+export const fetchDELETE = (path: any, data: any, query: any = '') => {
+  if (query) {
+    query = stringify(query);
+  }
+  let props = deleteProps;
   let token = sessionStorage.getItem('token') || localStorage.getItem('token') || '';
   props.headers.Authorization = 'Bearer ' + token;
   return fetchWrap(path, props, query, data);
