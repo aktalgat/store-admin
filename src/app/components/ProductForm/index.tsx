@@ -10,6 +10,7 @@ export namespace ProductForm {
 
     addProduct: any;
     updateProduct: any;
+    deleteProduct: any;
   }
 
   export interface State {
@@ -59,6 +60,10 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
     this.setState({ product: product, modal: true });
   };
 
+  handleDeleteClick = (id: number) => {
+    this.props.deleteProduct(id);
+  };
+
   clearState = () => {
     this.setState({ product: this.createEmptyProduct() })
   };
@@ -80,8 +85,8 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
           <td>{item.stars}</td>
           <td>{this.getImgList(item.productImageList)}</td>
           <td><div className="action-div">
-            <span onClick={() => {this.handleEditClick(item)}}><i className="fas fa-pen"/></span>
-            <span><i className="fas fa-trash"/></span></div></td>
+            <span onClick={() => this.handleEditClick(item)}><i className="fas fa-pen"/></span>
+            <span onClick={() => this.handleDeleteClick(item.id ? item.id : 0)}><i className="fas fa-trash"/></span></div></td>
         </tr>
       );
     });

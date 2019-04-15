@@ -12,6 +12,7 @@ export namespace AdminForm {
     fetchProducts: any;
     addProduct: any;
     updateProduct: any;
+    deleteProduct: any;
     error: string;
   }
 
@@ -80,7 +81,8 @@ export class AdminForm extends React.Component<AdminForm.Props, AdminForm.State>
               </div>
               <div className={'tab-pane fade' + (current == 'product' ? ' show active' : '')} role="tabpanel"
                    aria-labelledby="v-pills-profile-tab">
-                <ProductForm products={products} addProduct={this.props.addProduct} updateProduct={this.props.updateProduct}
+                <ProductForm products={products} addProduct={this.props.addProduct} deleteProduct={this.props.deleteProduct}
+                             updateProduct={this.props.updateProduct}
                              categories={categories} />
               </div>
             </div>
