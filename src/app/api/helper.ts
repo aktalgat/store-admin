@@ -17,7 +17,7 @@ const putProps = {
 };
 
 const deleteProps = {
-  method: 'PUT',
+  method: 'DELETE',
   headers: { 'Content-Type': 'application/json', Authorization: '' }
 };
 
