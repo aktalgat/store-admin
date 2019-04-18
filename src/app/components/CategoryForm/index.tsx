@@ -38,6 +38,10 @@ export class CategoryForm extends React.Component<CategoryForm.Props, CategoryFo
         <tr key={item.id}>
           <td>{index + 1}</td>
           <td>{item.name}</td>
+          <td className="action-td"><div className="action-div">
+            <span onClick={() => this.handleEditClick(item)}><i className="fas fa-pen"/></span>
+            <span><i className="fas fa-trash"/></span>
+          </div></td>
         </tr>
       );
     });
@@ -52,6 +56,10 @@ export class CategoryForm extends React.Component<CategoryForm.Props, CategoryFo
     this.props.addCategory({ name: this.state.name });
   };
 
+  handleEditClick = (item: CategoryModel) => {
+
+  };
+
   render() {
     const emptyList = this.getList().length == 0 ? <tr><td colSpan={3} align="center">
       <FormattedMessage id="noRecords" defaultMessage="No records" /></td></tr> : null;
@@ -64,6 +72,7 @@ export class CategoryForm extends React.Component<CategoryForm.Props, CategoryFo
               <tr className="text-center">
                 <th><FormattedMessage id="itemNumber" defaultMessage="#" /></th>
                 <th><FormattedMessage id="nomination" defaultMessage="Name" /></th>
+                <th>&nbsp;</th>
               </tr>
             </thead>
             <tbody>
