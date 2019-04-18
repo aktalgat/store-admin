@@ -11,8 +11,9 @@ export namespace CategoryForm {
   }
 
   export interface State {
-    name: string;
     modal: boolean;
+
+    category: CategoryModel;
   }
 }
 
@@ -20,12 +21,23 @@ export class CategoryForm extends React.Component<CategoryForm.Props, CategoryFo
   constructor(props: CategoryForm.Props) {
     super(props);
     this.state = {
-      name: '',
+      category: this.createEmptyCategory(),
       modal: false
     };
   }
 
+  clearState = () => {
+    this.setState({ category: this.createEmptyCategory() });
+  };
+
+  createEmptyCategory = (): CategoryModel => {
+    return { id: 0, name: ''}
+  };
+
   toggle = () => {
+    if (!this.state.modal) {
+      this.clearState();
+    }
     this.setState({
       modal: !this.state.modal
     });
@@ -49,11 +61,13 @@ export class CategoryForm extends React.Component<CategoryForm.Props, CategoryFo
   };
 
   handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({ name: e.target.value });
+    let newCategory = { ...this.state.category };
+    newCategory.name = e.target.value;
+    this.setState({ category: newCategory });
   };
 
   handleAddClick = () => {
-    this.props.addCategory({ name: this.state.name });
+    this.props.addCategory(this.state.category);
   };
 
   handleEditClick = (item: CategoryModel) => {
@@ -93,7 +107,7 @@ export class CategoryForm extends React.Component<CategoryForm.Props, CategoryFo
             <form>
               <div className="form-group">
                 <label htmlFor="categoryName"><FormattedMessage id="nomination" defaultMessage="Name" /></label>
-                <input type="text" className="form-control" id="categoryName" onChange={this.handleNameChange} />
+                <input type="text" className="form-control" id="categoryName" defaultValue={this.state.category.name} onChange={this.handleNameChange} />
               </div>
             </form>
           </ModalBody>
