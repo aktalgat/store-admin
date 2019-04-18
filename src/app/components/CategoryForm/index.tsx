@@ -8,6 +8,7 @@ export namespace CategoryForm {
     categories: CategoryModel[];
 
     addCategory: any;
+    updateCategory: any;
   }
 
   export interface State {
@@ -67,11 +68,16 @@ export class CategoryForm extends React.Component<CategoryForm.Props, CategoryFo
   };
 
   handleAddClick = () => {
-    this.props.addCategory(this.state.category);
+    if (this.state.category.id == 0) {
+      this.props.addCategory(this.state.category);
+    } else {
+      this.props.updateCategory(this.state.category);
+    }
+    this.clearState();
   };
 
-  handleEditClick = (item: CategoryModel) => {
-
+  handleEditClick = (category: CategoryModel) => {
+    this.setState({ category: category, modal: true });
   };
 
   render() {
@@ -107,13 +113,15 @@ export class CategoryForm extends React.Component<CategoryForm.Props, CategoryFo
             <form>
               <div className="form-group">
                 <label htmlFor="categoryName"><FormattedMessage id="nomination" defaultMessage="Name" /></label>
-                <input type="text" className="form-control" id="categoryName" defaultValue={this.state.category.name} onChange={this.handleNameChange} />
+                <input type="text" className="form-control" id="categoryName" defaultValue={this.state.category.name}
+                       onChange={this.handleNameChange} />
               </div>
             </form>
           </ModalBody>
           <ModalFooter>
             <Button color="primary" onClick={() => {this.toggle(); this.handleAddClick()}}>
-              <FormattedMessage id="add" defaultMessage="Add" />
+              <FormattedMessage id={this.state.category.id == 0 ? "add" : "edit"}
+                                defaultMessage={this.state.category.id == 0 ? "Add" : "Edit"} />
             </Button>{' '}
             <Button color="secondary" onClick={this.toggle}>
               <FormattedMessage id="cancel" defaultMessage="Cancel" />
