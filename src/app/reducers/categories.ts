@@ -25,6 +25,13 @@ export const categoriesReducer = handleActions<RootState.CategoriesState, any>(
     },
     [CategoriesActions.Type.ADD_CATEGORY_FAIL]: (state, action) => {
       return { ...state, error: action.payload };
+    },
+
+    [CategoriesActions.Type.UPDATE_CATEGORY]: (state, action) => {
+      return { ...state, error: '' };
+    },
+    [CategoriesActions.Type.UPDATE_CATEGORY_FAIL]: (state, action) => {
+      return { ...state, error: action.payload };
     }
   },
   initialState
