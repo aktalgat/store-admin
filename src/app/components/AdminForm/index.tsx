@@ -10,6 +10,7 @@ export namespace AdminForm {
 
     addCategory: any;
     updateCategory: any;
+    deleteCategory: any;
 
     fetchProducts: any;
     addProduct: any;
@@ -80,7 +81,9 @@ export class AdminForm extends React.Component<AdminForm.Props, AdminForm.State>
             <div className="tab-content content-wrapper">
               <div className={'tab-pane fade' + (current == 'category' ? ' show active' : '')} role="tabpanel"
                    aria-labelledby="v-pills-home-tab">
-                <CategoryForm categories={categories} addCategory={this.props.addCategory} updateCategory={this.props.updateCategory} />
+                <CategoryForm categories={categories} addCategory={this.props.addCategory}
+                              deleteCategory={this.props.deleteCategory}
+                              updateCategory={this.props.updateCategory} />
               </div>
               <div className={'tab-pane fade' + (current == 'product' ? ' show active' : '')} role="tabpanel"
                    aria-labelledby="v-pills-profile-tab">

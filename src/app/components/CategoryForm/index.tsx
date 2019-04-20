@@ -9,6 +9,7 @@ export namespace CategoryForm {
 
     addCategory: any;
     updateCategory: any;
+    deleteCategory: any;
   }
 
   export interface State {
@@ -53,7 +54,7 @@ export class CategoryForm extends React.Component<CategoryForm.Props, CategoryFo
           <td>{item.name}</td>
           <td className="action-td"><div className="action-div">
             <span onClick={() => this.handleEditClick(item)}><i className="fas fa-pen"/></span>
-            <span><i className="fas fa-trash"/></span>
+            <span onClick={() => this.handleDeleteClick(item.id)}><i className="fas fa-trash"/></span>
           </div></td>
         </tr>
       );
@@ -78,6 +79,10 @@ export class CategoryForm extends React.Component<CategoryForm.Props, CategoryFo
 
   handleEditClick = (category: CategoryModel) => {
     this.setState({ category: category, modal: true });
+  };
+
+  handleDeleteClick = (id: number) => {
+    this.props.deleteCategory(id);
   };
 
   render() {
