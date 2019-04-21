@@ -12,6 +12,6 @@ export const put = (data: any) => {
   return fetchPUT('api/protected/categories/' + data.id, data);
 };
 
-export const deleteProduct = (data: any) => {
+export const deleteCategory = (data: any) => {
   return fetchDELETE('api/protected/categories/' + data, data);
 };
