@@ -1,6 +1,6 @@
 import { call, fork, put, takeEvery } from 'redux-saga/effects';
 import api from 'app/api';
-import { CategoriesActions } from 'app/actions';
+import {CategoriesActions, ProductsActions} from 'app/actions';
 
 export function* fetchCategories(data: any) {
   yield put(CategoriesActions.requestCategories());
@@ -72,10 +72,39 @@ export function* watchPutCategoryDone() {
   yield takeEvery(CategoriesActions.Type.UPDATE_CATEGORY_DONE, putCategoryDone);
 }
 
+export function* deleteCategory(data: any) {
+  yield put(CategoriesActions.updateCategoryRequest(data));
+  try {
+    const { response, error } = yield call(api.categories.deleteCategory, data.payload);
+    if (response) {
+      yield put(CategoriesActions.deleteCategoryDone(response));
+    } else {
+      yield put(CategoriesActions.deleteCategoryFail(error));
+    }
+  } catch (e) {
+    yield put(CategoriesActions.deleteCategoryFail(e));
+  }
+}
+
+export function* watchDeleteCategory() {
+  yield takeEvery(CategoriesActions.Type.DELETE_CATEGORY, deleteCategory);
+}
+
+export function* deleteCategoryDone(data: any) {
+  yield put(CategoriesActions.fetchCategories(data.payload));
+  yield put(ProductsActions.fetchProducts(data.payload));
+}
+
+export function* watchDeleteCategoryDone() {
+  yield takeEvery(CategoriesActions.Type.DELETE_CATEGORY_DONE, deleteCategoryDone);
+}
+
 export default function* root() {
   yield fork(watchCategories);
   yield fork(watchPostCategory);
   yield fork(watchPostCategoryDone);
   yield fork(watchPutCategory);
   yield fork(watchPutCategoryDone);
+  yield fork(watchDeleteCategory);
+  yield fork(watchDeleteCategoryDone);
 }
