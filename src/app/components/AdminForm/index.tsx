@@ -96,7 +96,7 @@ export class AdminForm extends React.Component<AdminForm.Props, AdminForm.State>
         </div>
 
         <div className={'myAlert-top alert alert-danger ' + (showError ? '' : 'd-none')}>
-          <span className="close" data-dismiss="alert" aria-label="close" onClick={this.handleCloseClick}>&times;</span>
+          <span className="close close-span" data-dismiss="alert" aria-label="close" onClick={this.handleCloseClick}>&times;</span>
           <strong>Error!</strong> {error}
         </div>
       </div>
