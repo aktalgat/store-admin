@@ -260,12 +260,14 @@ export class ProductForm extends React.Component<ProductForm.Props, ProductForm.
               </div>
               <div className="form-group">
                 <label htmlFor="productPrice"><FormattedMessage id="price" defaultMessage="Price" /></label>
-                <input type="text" className="form-control" id="productPrice" defaultValue={this.state.product.price.toString()}
+                <input type="text" className="form-control" id="productPrice"
+                       defaultValue={this.state.product.price !=0 ? this.state.product.price.toString() : ''}
                        onChange={this.handlePriceChange}/>
               </div>
               <div className="form-group">
                 <label htmlFor="productOldPrice"><FormattedMessage id="oldPrice" defaultMessage="Old price" /></label>
-                <input type="text" className="form-control" id="productOldPrice" defaultValue={this.state.product.priceOld.toString()}
+                <input type="text" className="form-control" id="productOldPrice"
+                       defaultValue={this.state.product.priceOld != 0 ? this.state.product.priceOld.toString() : ''}
                        onChange={this.handlePriceOldChange}/>
               </div>
               <div className="form-group">
